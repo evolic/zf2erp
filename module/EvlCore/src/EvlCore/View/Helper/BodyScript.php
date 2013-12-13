@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * ERP System
+ *
+ * @author Tomasz Kuter <evolic_at_interia_dot_pl>
+ * @copyright Copyright (c) 2013 Tomasz Kuter (http://www.tomaszkuter.com)
+ */
 
 namespace EvlCore\View\Helper;
 
