@@ -1,0 +1,313 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZendSkeletonApplication\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-24 18:21+0100\n"
+"PO-Revision-Date: 2013-03-24 18:26+0100\n"
+"Last-Translator: Tomasz Kuter <evolic@interia.pl>\n"
+"Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate;translatePlural\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;translate\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-5: .\n"
+"X-Poedit-SearchPath-0: C:\\xampp\\projects\\zf2-tutorial\\module"
+"\\Application\n"
+"X-Poedit-SearchPath-1: C:\\xampp\\projects\\zf2-tutorial\\module\\Auth\n"
+"X-Poedit-SearchPath-2: C:\\xampp\\projects\\zf2-tutorial\\module\\Album\n"
+"X-Poedit-SearchPath-3: .\n"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/src/Album/Controller/AlbumController.php:34
+#: C:\xampp\projects\zf2-tutorial\module\Album/src/Album/Controller/SongController.php:60
+msgid "Add"
+msgstr "Dodaj"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/src/Album/Controller/AlbumController.php:74
+msgid "Save"
+msgstr "Zapisz"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/src/Album/Controller/AlbumController.php:110
+#: C:\xampp\projects\zf2-tutorial\module\Album/src/Album/Controller/SongController.php:173
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/delete.phtml:24
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/delete.phtml:19
+msgid "Yes"
+msgstr "Tak"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/src/Album/Controller/SongController.php:117
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/index.phtml:42
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:53
+msgid "Edit"
+msgstr "Edytuj"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:2
+#, php-format
+msgid "Welcome to %sZend Framework 2%s"
+msgstr "Witamy w projekcie %sZend Framework 2%s"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:3
+#, php-format
+msgid ""
+"Congratulations! You have successfully installed the %sZF2 Skeleton "
+"Application%s. You are currently running Zend Framework version %s. This "
+"skeleton can serve as a simple starting point for you to begin building your "
+"application on ZF2."
+msgstr ""
+"Gratulujemy! Pomyślnie zainstalowano %sSzkielet aplikacji ZF2%s. Aktualnie "
+"korzystasz z wersji %s, oprogramowania Zend Framework. Ten szkielet może "
+"posłużyć jako punkt startowy, umożliwiający budowę aplikacji "
+"wykorzystujących ZF2."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:4
+msgid "Fork Zend Framework 2 on GitHub"
+msgstr "Skolonuj Zend Framework 2 na GitHub-ie"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:10
+msgid "Follow Development"
+msgstr "Nowe wersje"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:11
+#, php-format
+msgid ""
+"Zend Framework 2 is under active development. If you are interested in "
+"following the development of ZF2, there is a special ZF2 portal on the "
+"official Zend Framework website which provides links to the ZF2 %swiki%s, "
+"%sdev blog%s, %sissue tracker%s, and much more. This is a great resource for "
+"staying up to date with the latest developments!"
+msgstr ""
+"Oprogramowanie Zend Framework 2 jest aktualnie w fazie rozwoju. Jeśli chcesz "
+"dowiedzieć się więcej o nowych wersjach ZF2, istnieje specjalny portal na "
+"oficjalnej stronie Zend Framework, który dostarcza odnośniki do %swiki%s, "
+"%sbloga deweloperów%s, %snarzędzia śledzenia błędów%s i innych. Jest to "
+"świetne miejsce, dzięki któremu możesz być na bieżąco z wydaniami ZF2."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:12
+msgid "ZF2 Development Portal"
+msgstr "Portal ZF2 Development"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:16
+msgid "Discover Modules"
+msgstr "Zapoznaj się z modułami"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:17
+#, php-format
+msgid ""
+"The community is working on developing a community site to serve as a "
+"repository and gallery for ZF2 modules. The project is available %son GitHub"
+"%s. The site is currently live and currently contains a list of some of the "
+"modules already available for ZF2."
+msgstr ""
+"Społeczność rozwija stronę jako repozytorium i&nbsp;galerię modułow ZF2. "
+"Projekt jest dostępny na&nbsp;%sGitHub%s. Strona jest na bieżąco "
+"aktualizowana i&nbsp;aktualnie zawiera listę wybranych modułów, "
+"wykorzystujących ZF2."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:18
+msgid "Explore ZF2 Modules"
+msgstr "Przejżyj listę modułów ZF2"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:22
+msgid "Help &amp; Support"
+msgstr "Pomoc i Wspracie"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:23
+#, php-format
+msgid ""
+"If you need any help or support while developing with ZF2, you may reach us "
+"via IRC: %s#zftalk.2 on Freenode%s. We'd love to hear any questions or "
+"feedback you may have regarding the beta releases. Alternatively, you may "
+"subscribe and post questions to the %smailing lists%s."
+msgstr ""
+"Jeśli potrzebujesz pomocy lub wsparcia podczas tworzenia oprogramowania z "
+"wykorzystaniem ZF2, możesz złapać nas poprzez IRC: %s#zftalk.2 na Freenode"
+"%s. Z przyjemnością wysłuchamy pytań lub informacji zwrotnej, które możesz "
+"mieć w związku  wydaniami beta. Alernatywnie, możesz zapisać się i "
+"zamieszczać pytania poprzez %slistę mailingową%s."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/application/index/zf2.phtml:24
+msgid "Ping us on IRC"
+msgstr "Złap nas na IRC"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:1
+msgid "A 404 error occurred"
+msgstr "Nie znaleziono strony"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:10
+msgid "The requested controller was unable to dispatch the request."
+msgstr "Żądany kontroler nie był w stanie przesłać żądania."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:13
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr ""
+"Żądany kontroler nie został zmapowany do żadnej istniejącej klasy kontrolera."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:16
+msgid "The requested controller was not dispatchable."
+msgstr "Żądany kontroler nie może być uruchomiony."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:19
+msgid "The requested URL could not be matched by routing."
+msgstr "Żądany URL nie został dopasowany do żadnej ścieżki routing'u."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:22
+msgid "We cannot determine at this time why a 404 was generated."
+msgstr ""
+"Nie możemy w tym przypadku określić przyczyny wystąpnienia błędu typu 404."
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:34
+msgid "Controller"
+msgstr "Kontroler"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:41
+#, php-format
+msgid "resolves to %s"
+msgstr "odnosi się do %s"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:51
+msgid "Exception"
+msgstr "Wyjątek"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/404.phtml:55
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:19
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:43
+msgid "Stack trace"
+msgstr "Stos"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:1
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/not-supported-locale.phtml:1
+msgid "An error occurred"
+msgstr "Wystąpił błąd"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:8
+msgid "Additional information"
+msgstr "Dodatkowe informacje"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:11
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:35
+msgid "File"
+msgstr "Plik"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:15
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:39
+msgid "Message"
+msgstr "Wiadomość"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:29
+msgid "Previous exceptions"
+msgstr "Poprzedni wyjątek"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/index.phtml:58
+msgid "No Exception available"
+msgstr "Brak informacji o wyjątkach"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/error/not-supported-locale.phtml:2
+msgid "Given locale is not supported!"
+msgstr "Wybrany język nie jest wspierany przez aplikację!"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/layout/layout.phtml:11
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/layout/layout.phtml:38
+msgid "Skeleton Application"
+msgstr "Tutorial"
+
+#: C:\xampp\projects\zf2-tutorial\module\Application/view/layout/layout.phtml:48
+msgid "Home"
+msgstr "Strona główna"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/delete.phtml:9
+#, php-format
+msgid "Are you sure that you want to delete '%s' by '%s'?"
+msgstr "Czy na pewno chcesz usunąć '%s' wykonawcy '%s'?"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/delete.phtml:25
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/delete.phtml:20
+msgid "No"
+msgstr "Nie"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/index.phtml:13
+msgid "Add new album"
+msgstr "Dodaj nowy album"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/index.phtml:23
+msgid "Artist"
+msgstr "Wykonawca"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/index.phtml:28
+msgid "Title"
+msgstr "Tytuł"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/index.phtml:44
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:55
+msgid "Delete"
+msgstr "Usuń"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/index.phtml:52
+#, php-format
+msgid "Found %d album."
+msgstr "Znaleziono %d album."
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/album/index.phtml:59
+msgid "No album was found."
+msgstr "Nie znaleziono żadnego albumu."
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/add.phtml:2
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:11
+msgid "Add new song"
+msgstr "Dodaj nowy utwór"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/delete.phtml:4
+msgid "Delete song"
+msgstr "Usuń utwór z albumu"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/delete.phtml:9
+#, php-format
+msgid "Are you sure that you want to delete '%s' from album '%s'?"
+msgstr "Czy na pewno chesz usunąć utwór '%s' z albumu '%s'?"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/edit.phtml:4
+msgid "Edit song"
+msgstr "Edytuj utwór"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:5
+#, php-format
+msgid "%s's songs"
+msgstr "Utwory w %s"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:21
+msgid "Position"
+msgstr "Kolejność"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:28
+msgid "Song"
+msgstr "Utwór"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:35
+msgid "Duration"
+msgstr "Czas trwania"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:37
+msgid "Disc"
+msgstr "Płyta"
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:63
+#, php-format
+msgid "Found %d song in album."
+msgstr "Znaleziono %d utwór w albumie."
+
+#: C:\xampp\projects\zf2-tutorial\module\Album/view/album/song/index.phtml:67
+msgid "No song was found."
+msgstr "Nie znaleziono żadnego utworu w albumie."
+
+#~ msgid "Found %d albums."
+#~ msgstr "Znaleziono %d albumy/albumów."
+
+#~ msgid "Found %d songs in album."
+#~ msgstr "Znaleziono %d utwory/utworów w albumie."
+
+#~ msgid "All rights reserved."
+#~ msgstr "Wszystkie prawa zastrzeżone."

@@ -1,0 +1,31 @@
+/** Bootstrap Spinner with errors **/
+
+.has-error .input-group-btn .btn, .has-error .input-group-addon {
+    border-color: #A94442;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.has-error .input-group-btn .btn-default,
+.has-error .input-group-btn .btn-default:hover,
+.has-error .input-group-btn .btn-default:focus,
+.has-error .input-group-addon {
+    background-color: #F2AEAE;
+    background-image: linear-gradient(to bottom, #F2DEDE 0px, #F2AEAE 100%);
+    color: #A94442;
+}
+.has-error ul {
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+}
+.has-error ul li {
+    display: block;
+    padding: 10px 10px 10px 32px;
+    margin-bottom: 15px;
+    color: #a94442;
+    background-color: #f2dede;
+    background-image: url('/i/ico/status-icons-set/24/13.png');
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+}

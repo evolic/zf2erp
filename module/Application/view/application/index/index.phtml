@@ -1,0 +1,9 @@
+<p class="welcome">
+<?php foreach ($this->locales as $locale => $name): ?>
+  <a href="<?php
+echo $this->url('home', array('locale' => $locale));
+?>" title="<?php echo $name; ?>" lang="<?php echo $locale; ?>">
+  <img src="/i/ico/flag/64/<?php echo $locale; ?>.png" alt="<?php echo $locale; ?> flag" />
+</a>
+<?php endforeach; ?>
+</p>

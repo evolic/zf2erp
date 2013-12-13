@@ -1,0 +1,14 @@
+.alert {
+    background-position: 8px center;
+    background-repeat: no-repeat;
+}
+.alert-error {
+    background-image: url('/i/ico/status-icons-set/24/13.png');
+}
+.alert-info {
+    background-image: url('/i/ico/status-icons-set/24/17.png');
+}
+.alert-success {
+    padding-left: 36px;
+    background-image: url('/i/ico/status-icons-set/24/30.png');
+}

@@ -1,0 +1,51 @@
+<?php
+// module/EvlErp/view/evl-erp/vat-rates/index.phtml:
+$firephp = \FirePHP::getInstance();
+$firephp->info(__FILE__);
+$firephp->info($this->locale);
+$title = 'VAT rates list';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('erp/vat-rates/actions', array(
+        'locale' => $this->locale,
+        'action'=>'add'
+    ));?>"><?php echo $this->translate('Add new VAT rate'); ?></a>
+</p>
+
+<?php if ($vatRates): ?>
+<table class="table vat-rates" style="width: 320px;">
+<thead>
+    <tr>
+        <th style="width: 30px;"><?php echo $this->translate('#'); ?></th>
+        <th style="width: 40px;"><?php echo $this->translate('ID'); ?></th>
+        <th style="width: 250px;"><?php echo $this->translate('Value'); ?></th>
+        <th>&nbsp;</th>
+    </tr>
+</thead>
+<tbody>
+    <?php $idx = 0; ?>
+    <?php foreach ($vatRates as $vatRate) : ?>
+    <tr>
+        <td><?php echo ++$idx; ?></td>
+        <td><?php echo $vatRate['id']; ?></td>
+        <td class="datetime"><?php echo $this->escapeHtml($vatRate['value']);?>%</td>
+        <td>
+            <a href="<?php echo $this->url('erp/vat-rates/actions',
+                array('locale' => $this->locale, 'action'=>'delete', 'id' => $vatRate['id'])
+            );?>"><?php echo $this->translate('Delete'); ?></a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
+
+<p><?php
+$count = count($vatRates);
+$message = $this->translatePlural('Found %d VAT rate.', 'Found %d VAT rates.', $count, 'order', $this->locale);
+echo sprintf($message, $count);
+?></p>
+<?php else:?>
+<p><?php echo $this->translate('No VAT rate was found.'); ?></p>
+<?php endif; ?>

@@ -1,0 +1,12 @@
+<select id="select-lang" class="form-control"
+        onChange="javascript:window.location.replace(changeLang(this.value));">
+    <?php foreach ($this->locales as $key => $value) {
+        $selected = ($key === $this->selected) ? ' selected="selected"' : '';
+        printf(
+            '<option value="%s"%s>%s</option>',
+            $this->escapeHtmlAttr($key),
+            $selected,
+            $this->escapeHtml($value)
+        );
+    } ?>
+</select>

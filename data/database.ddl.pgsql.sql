@@ -1,0 +1,6 @@
+CREATE TABLE vat_rates (
+  id SERIAL NOT NULL,
+  value DOUBLE PRECISION NOT NULL,
+
+  PRIMARY KEY(id)
+);
