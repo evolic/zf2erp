@@ -1,0 +1,51 @@
+<?php
+// module/EvlErp/view/evl-erp/units/index.phtml:
+$firephp = \FirePHP::getInstance();
+$firephp->info(__FILE__);
+$firephp->info($this->locale);
+$title = 'Product categories list';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('erp/product-categories/actions', array(
+        'locale' => $this->locale,
+        'action'=>'add'
+    ));?>"><?php echo $this->translate('Add new product category'); ?></a>
+</p>
+
+<?php if ($productCategories): ?>
+<table class="table units" style="width: 640px;">
+<thead>
+    <tr>
+        <th style="width: 30px;"><?php echo $this->translate('#'); ?></th>
+        <th style="width: 40px;"><?php echo $this->translate('ID'); ?></th>
+        <th><?php echo $this->translate('Name'); ?></th>
+        <th style="width: 80px;">&nbsp;</th>
+    </tr>
+</thead>
+<tbody>
+    <?php $idx = 0; ?>
+    <?php foreach ($productCategories as $productCategory) : ?>
+    <tr>
+        <td><?php echo ++$idx; ?></td>
+        <td><?php echo $productCategory['id']; ?></td>
+        <td><?php echo $this->escapeHtml($productCategory['name']);?></td>
+        <td>
+            <a href="<?php echo $this->url('erp/product-categories/actions',
+                array('locale' => $this->locale, 'action'=>'delete', 'id' => $productCategory['id'])
+            );?>"><?php echo $this->translate('Delete'); ?></a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
+
+<p><?php
+$count = count($productCategories);
+$message = $this->translatePlural('Found %d product category.', 'Found %d product categories.', $count, 'evl-erp', $this->locale);
+echo sprintf($message, $count);
+?></p>
+<?php else:?>
+<p><?php echo $this->translate('No product category was found.'); ?></p>
+<?php endif; ?>

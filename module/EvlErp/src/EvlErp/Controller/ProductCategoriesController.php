@@ -10,9 +10,9 @@ namespace EvlErp\Controller;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Query;
-use EvlErp\Entity\Unit;
-use EvlErp\Form\UnitForm;
-use EvlErp\Service\UnitsService;
+use EvlErp\Entity\ProductCategory;
+use EvlErp\Form\ProductCategoryForm;
+use EvlErp\Service\ProductCategoriesService;
 use Loculus\Mvc\Controller\DefaultController;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
@@ -21,34 +21,34 @@ use Zend\Validator\NotEmpty;
 use Zend\Validator\ValidatorChain;
 use Zend\View\Model\ViewModel;
 
-class UnitsController extends DefaultController
-  implements UnitsControllerInterface
+class ProductCategoriesController extends DefaultController
+  implements ProductCategoriesControllerInterface
 {
     /**
      *
-     * @var UnitForm
+     * @var ProductCategoryForm
      */
-    private $unitForm;
+    private $productCategoryForm;
 
     /**
      *
-     * @var UnitsService
+     * @var ProductCategoriesService
      */
-    private $unitsService;
+    private $productCategoriesService;
 
 
     public function indexAction()
     {
         $locale = $this->params()->fromRoute('locale');
         $orderBy = $this->params()->fromRoute('order_by', '');
-        $limit = UnitsControllerInterface::DEFAULT_LIMIT_PER_PAGE;
+        $limit = ProductCategoriesControllerInterface::DEFAULT_LIMIT_PER_PAGE;
 
         $criteria = array(
             'limit' => $limit,
             'order_by' => $orderBy,
         );
 
-        $units = $this->getUnitsService()->getUnitsRepository()->getUnits(
+        $productCategories = $this->getProductCategoriesService()->getProductCategoriesRepository()->getProductCategories(
             $criteria, Query::HYDRATE_ARRAY
         );
 
@@ -56,7 +56,7 @@ class UnitsController extends DefaultController
         $errors = $this->FlashMessenger()->getErrorMessages();
 
         $this->viewModel->setVariables(array(
-            'units' => $units,
+            'productCategories' => $productCategories,
             'messages' => $messages,
             'errors' => $errors,
         ));
@@ -75,7 +75,7 @@ class UnitsController extends DefaultController
             return $this->viewModel;
         }
 
-        $form = new UnitForm();
+        $form = new ProductCategoryForm();
 
         $inputFilter = new InputFilter();
         $factory = new InputFactory();
@@ -83,25 +83,25 @@ class UnitsController extends DefaultController
         $request = $this->getRequest();
         if ($request->isPost()) {
             $firephp->info('is post');
-            $unit = new Unit();
-            $form->setInputFilter($unit->getInputFilter());
-            $form->attachObjectExistsValidator($this->getUnitsService()->getUnitsRepository());
+            $productCategory = new ProductCategory();
+            $form->setInputFilter($productCategory->getInputFilter());
+            $form->attachObjectExistsValidator($this->getProductCategoriesService()->getProductCategoriesRepository());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
                 $firephp->info('is valid');
                 $values = $form->getData();
                 $firephp->info($values, '$values');
-                $unit->populate($values);
+                $productCategory->populate($values);
 
-                if ($this->getUnitsService()->addUnit($unit)) {
-                    $this->FlashMessenger()->addSuccessMessage('New unit has been successfully added');
+                if ($this->getProductCategoriesService()->addProductCategory($productCategory)) {
+                    $this->FlashMessenger()->addSuccessMessage('New product category has been successfully added');
                 } else {
-                    $this->FlashMessenger()->addErrorMessage('Error occured during adding new unit');
+                    $this->FlashMessenger()->addErrorMessage('Error occured during adding new product category');
                 }
 
-                // Redirect to list of units
-                return $this->redirect()->toRoute('erp/units', array('locale' => $locale));
+                // Redirect to list of productCategories
+                return $this->redirect()->toRoute('erp/product-categories', array('locale' => $locale));
             } else {
                 $firephp->warn('not valid');
                 $values = $form->getData();
@@ -121,42 +121,42 @@ class UnitsController extends DefaultController
 
 
     /**
-     * Method used to inject form handling adding new unit.
+     * Method used to inject form handling adding new product category.
      *
-     * @param UnitForm $orderLunchForm
+     * @param ProductCategoryForm $orderLunchForm
      */
-    public function setUnitForm(UnitForm $form)
+    public function setProductCategoryForm(ProductCategoryForm $form)
     {
-        $this->unitForm = $form;
+        $this->productCategoryForm = $form;
     }
 
     /**
-     * Method used to obtain form handling adding new unit.
+     * Method used to obtain form handling adding new product category.
      *
-     * @return UnitForm
+     * @return ProductCategoryForm
      */
-    public function getUnitForm()
+    public function getProductCategoryForm()
     {
-        return $this->unitForm;
+        return $this->productCategoryForm;
     }
 
     /**
-     * Method used to inject units service.
+     * Method used to inject productCategories service.
      *
-     * @param UnitsService $service
+     * @param ProductCategoriesService $service
      */
-    public function setUnitsService(UnitsService $service)
+    public function setProductCategoriesService(ProductCategoriesService $service)
     {
-        $this->unitsService = $service;
+        $this->productCategoriesService = $service;
     }
 
     /**
-     * Method used to obtain units service.
+     * Method used to obtain productCategories service.
      *
-     * @return UnitsService
+     * @return ProductCategoriesService
      */
-    public function getUnitsService()
+    public function getProductCategoriesService()
     {
-        return $this->unitsService;
+        return $this->productCategoriesService;
     }
 }

@@ -8,33 +8,33 @@
 
 namespace EvlErp\Factory\Controller;
 
-use EvlErp\Controller\VatRatesController;
+use EvlErp\Controller\ProductCategoriesController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Class VatRatesFactory - factory used to create VatRatesController.
+ * Class ProductCategoriesFactory - factory used to create ProductCategoriesController.
  *
  * @package EvlErp\Factory\Controller
  */
-class VatRatesControllerFactory implements FactoryInterface
+class ProductCategoriesControllerFactory implements FactoryInterface
 {
     /**
      * Factory method.
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return VatRatesController
+     * @return ProductCategoriesController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $firephp = \FirePHP::getInstance();
         $firephp->group(__METHOD__);
 
-        $vatRateForm = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\VatRateForm');
+        $productCategoryForm = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\ProductCategoryForm');
 
-        $ctr = new VatRatesController();
-        $ctr->setVatRateForm($vatRateForm);
-        $ctr->setVatRatesService($serviceLocator->getServiceLocator()->get('VatRatesService'));
+        $ctr = new ProductCategoriesController();
+        $ctr->setProductCategoryForm($productCategoryForm);
+        $ctr->setProductCategoriesService($serviceLocator->getServiceLocator()->get('ProductCategoriesService'));
 
         $firephp->groupEnd();
 

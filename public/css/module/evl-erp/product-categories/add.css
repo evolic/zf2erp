@@ -1,0 +1,10 @@
+form#product-category-form {
+    width: 480px;
+}
+
+form#product-category-form label span {
+    display: block;
+}
+form#product-category-form label.name input {
+    width: 100%;
+}

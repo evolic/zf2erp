@@ -23,7 +23,7 @@ class UnitsControllerFactory implements FactoryInterface
      * Factory method.
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return OrdersController|mixed
+     * @return UnitsController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

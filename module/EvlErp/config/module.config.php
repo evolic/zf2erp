@@ -4,14 +4,16 @@ namespace EvlErp;
 return array(
     'service_manager' => array(
         'factories' => array(
-            'VatRatesService' => 'EvlErp\Factory\Service\VatRatesServiceFactory',
+            'ProductCategoriesService' => 'EvlErp\Factory\Service\ProductCategoriesServiceFactory',
             'UnitsService' => 'EvlErp\Factory\Service\UnitsServiceFactory',
+            'VatRatesService' => 'EvlErp\Factory\Service\VatRatesServiceFactory',
         )
     ),
     'controllers' => array(
         'factories' => array(
-            'evl-erp/vat-rates' => 'EvlErp\Factory\Controller\VatRatesControllerFactory',
+            'evl-erp/product-categories' => 'EvlErp\Factory\Controller\ProductCategoriesControllerFactory',
             'evl-erp/units' => 'EvlErp\Factory\Controller\UnitsControllerFactory',
+            'evl-erp/vat-rates' => 'EvlErp\Factory\Controller\VatRatesControllerFactory',
 //             'evl-erp/products' => 'EvlErp\Factory\Controller\ProductsControllerFactory',
         ),
         'invokables' => array(
@@ -33,12 +35,12 @@ return array(
                     ),
                 ),
                 'child_routes' => array(
-                    'vat-rates' => array(
+                    'product-categories' => array(
                         'type' => 'segment',
                         'options' => array(
-                            'route' => '/vat-rates',
+                            'route' => '/product-categories',
                             'defaults' => array(
-                                'controller' => 'evl-erp/vat-rates',
+                                'controller' => 'evl-erp/product-categories',
                             ),
                         ),
                         'child_routes' => array(
@@ -64,6 +66,31 @@ return array(
                             'route' => '/units',
                             'defaults' => array(
                                 'controller' => 'evl-erp/units',
+                            ),
+                        ),
+                        'child_routes' => array(
+                            'actions' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/:action[/:id][,[:page],[:order_by]].html',
+                                    'constraints' => array(
+                                        'action'   => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'       => '[0-9]+',
+                                        'page'     => '[0-9]+',
+                                        'order_by' => '[a-z][a-z_]*',
+                                    ),
+                                ),
+                                'may_terminate' => true,
+                            ),
+                        ),
+                        'may_terminate' => true,
+                    ),
+                    'vat-rates' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/vat-rates',
+                            'defaults' => array(
+                                'controller' => 'evl-erp/vat-rates',
                             ),
                         ),
                         'child_routes' => array(

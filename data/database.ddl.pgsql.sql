@@ -1,6 +1,6 @@
-CREATE TABLE vat_rates (
+CREATE TABLE product_categories (
   id SERIAL NOT NULL,
-  value DOUBLE PRECISION NOT NULL,
+  name VARCHAR(63) NOT NULL,
 
   PRIMARY KEY(id)
 );
@@ -12,3 +12,11 @@ CREATE TABLE units (
 
   PRIMARY KEY(id)
 );
+
+CREATE TABLE vat_rates (
+  id SERIAL NOT NULL,
+  value DOUBLE PRECISION NOT NULL,
+
+  PRIMARY KEY(id)
+);
+

@@ -48,7 +48,7 @@ $firephp->info($locale);
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo $this->url('home', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Home') ?></a></li>
             <li><a href=""><?php echo $this->translate('Products') ?></a></li>
-            <li><a href=""><?php echo $this->translate('Product categories') ?></a></li>
+            <li><a href="<?php echo $this->url('erp/product-categories', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Product categories') ?></a></li>
             <li><a href="<?php echo $this->url('erp/units', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Units') ?></a></li>
             <li><a href="<?php echo $this->url('erp/vat-rates', array('locale' => $this->locale)); ?>"><?php echo $this->translate('VAT rates') ?></a></li>
             <li><a href=""><?php echo $this->translate('Suppliers') ?></a></li>
@@ -104,7 +104,7 @@ if ($this->messages || $this->errors) {
     if (is_array($this->errors)) {
         foreach($this->errors as $error)
         {
-            echo '<div class="alert alert-error fade in">' .
+            echo '<div class="alert alert-danger fade in">' .
                     '<button data-dismiss="alert" class="close" type="button">×</button>' .
                     $error .
                 '</div>';

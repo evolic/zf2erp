@@ -2,10 +2,12 @@
     background-position: 8px center;
     background-repeat: no-repeat;
 }
-.alert-error {
+.alert-danger {
+    padding-left: 36px;
     background-image: url('/i/ico/status-icons-set/24/13.png');
 }
 .alert-info {
+    padding-left: 36px;
     background-image: url('/i/ico/status-icons-set/24/17.png');
 }
 .alert-success {
