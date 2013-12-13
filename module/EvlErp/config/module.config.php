@@ -5,11 +5,13 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'VatRatesService' => 'EvlErp\Factory\Service\VatRatesServiceFactory',
+            'UnitsService' => 'EvlErp\Factory\Service\UnitsServiceFactory',
         )
     ),
     'controllers' => array(
         'factories' => array(
             'evl-erp/vat-rates' => 'EvlErp\Factory\Controller\VatRatesControllerFactory',
+            'evl-erp/units' => 'EvlErp\Factory\Controller\UnitsControllerFactory',
 //             'evl-erp/products' => 'EvlErp\Factory\Controller\ProductsControllerFactory',
         ),
         'invokables' => array(
@@ -37,6 +39,31 @@ return array(
                             'route' => '/vat-rates',
                             'defaults' => array(
                                 'controller' => 'evl-erp/vat-rates',
+                            ),
+                        ),
+                        'child_routes' => array(
+                            'actions' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/:action[/:id][,[:page],[:order_by]].html',
+                                    'constraints' => array(
+                                        'action'   => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'       => '[0-9]+',
+                                        'page'     => '[0-9]+',
+                                        'order_by' => '[a-z][a-z_]*',
+                                    ),
+                                ),
+                                'may_terminate' => true,
+                            ),
+                        ),
+                        'may_terminate' => true,
+                    ),
+                    'units' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/units',
+                            'defaults' => array(
+                                'controller' => 'evl-erp/units',
                             ),
                         ),
                         'child_routes' => array(

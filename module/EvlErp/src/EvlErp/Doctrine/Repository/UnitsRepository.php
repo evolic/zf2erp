@@ -10,33 +10,33 @@ namespace EvlErp\Doctrine\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
-use EvlErp\Entity\VatRate;
+use EvlErp\Entity\Unit;
 
 /**
- * Class VatRatesRepository - orders repository. Provides additional database query methods.
+ * Class UnitsRepository - orders repository. Provides additional database query methods.
  *
  * @package EvlErp\Doctrine\Repository
  */
-class VatRatesRepository extends EntityRepository
-  implements VatRatesRepositoryInterface
+class UnitsRepository extends EntityRepository
+  implements UnitsRepositoryInterface
 {
     /**
-     * Method used to obtain available VAT rates from the database
+     * Method used to obtain available Units from the database
      *
      * @param array $criteria - additional criteria
      * @param int $hydrate - result hydration mode
-     * @return array - available VAT rates
+     * @return array - available units
      */
-    public function getVatRates($criteria, $hydrate = Query::HYDRATE_OBJECT)
+    public function getUnits($criteria, $hydrate = Query::HYDRATE_OBJECT)
     {
         $qb = $this->_em->createQueryBuilder();
-        $qb->select('vr')
-            ->from('EvlErp\Entity\VatRate', 'vr');
+        $qb->select('u')
+            ->from('EvlErp\Entity\Unit', 'u');
 
         if (isset($criteria['order_by']) && $criteria['order_by']) {
-            $qb->orderBy('vr.' . $criteria['order_by']);
+            $qb->orderBy('u.' . $criteria['order_by']);
         } else {
-            $qb->orderBy('vr.value', 'ASC');
+            $qb->orderBy('u.name', 'ASC');
         }
         if (isset($criteria['limit']) && $criteria['limit']) {
             $qb->setMaxResults($criteria['limit']);

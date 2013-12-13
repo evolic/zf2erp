@@ -9,25 +9,25 @@
 namespace EvlErp\Service;
 
 use Doctrine\ORM\EntityManager;
-use EvlErp\Doctrine\Repository\VatRatesRepository;
-use EvlErp\Entity\VatRate;
+use EvlErp\Doctrine\Repository\UnitsRepository;
+use EvlErp\Entity\Unit;
 
-interface VatRatesServiceInterface
+interface UnitsServiceInterface
 {
     /**
-     * Method used to obtain VAT rates repository.
+     * Method used to obtain units repository.
      *
-     * @return VatRatesRepository
+     * @return UnitsRepository
      */
-    public function getVatRatesRepository();
+    public function getUnitsRepository();
 
     /**
-     * Method used to persist new VAT rate in database
+     * Method used to persist new unit in database
      *
-     * @param VatRate $vatRate
+     * @param Unit $unit
      * @return boolean
      */
-    public function addVatRate(VatRate $vatRate);
+    public function addUnit(Unit $unit);
 
 
     /**

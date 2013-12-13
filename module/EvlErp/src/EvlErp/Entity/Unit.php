@@ -11,24 +11,22 @@ namespace EvlErp\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use EvlErp\Doctrine\Repository\VatRatesRepository;
-use NumberFormatter;
-use Zend\I18n\Filter\NumberFormat;
+use EvlErp\Doctrine\Repository\UnitsRepository;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
-use Zend\Validator\Between as BetweenValidator;
 
 /**
- * A VAT rate entity class
+ * A Unit entity class
  *
- * @ORM\Entity(repositoryClass="EvlErp\Doctrine\Repository\VatRatesRepository")
- * @ORM\Table(name="vat_rates")
+ * @ORM\Entity(repositoryClass="EvlErp\Doctrine\Repository\UnitsRepository")
+ * @ORM\Table(name="units")
  * @property int $id
- * @property float $value
+ * @property string $name
+ * @property string $description
  */
-class VatRate implements InputFilterAwareInterface
+class Unit implements InputFilterAwareInterface
 {
     protected $inputFilter;
 
@@ -40,15 +38,20 @@ class VatRate implements InputFilterAwareInterface
     protected $id;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=15)
      */
-    protected $value;
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=63, nullable=true)
+     */
+    protected $description;
 
 //     /**
-//      * Products using specified VAT rate
+//      * Products using specified unit
 //      *
 //      * @var Doctrine\Common\Collections\ArrayCollection $products
-//      * @ORM\OneToMany(targetEntity="Product", mappedBy="vat_rate", cascade={"persist","remove"})
+//      * @ORM\OneToMany(targetEntity="Product", mappedBy="unit", cascade={"persist","remove"})
 //      */
 //     protected $products;
 
@@ -60,11 +63,19 @@ class VatRate implements InputFilterAwareInterface
 
 
     /**
-     * @return float
+     * @return string
      */
-    public function getValue()
+    public function getName()
     {
-        return $this->value;
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+      return $this->description;
     }
 
 
@@ -108,8 +119,9 @@ class VatRate implements InputFilterAwareInterface
      */
     public function populate($data = array())
     {
-        $this->id    = isset($data['id']) ? $data['id'] : null;
-        $this->value = $data['value'];
+        $this->id          = isset($data['id']) ? $data['id'] : null;
+        $this->name        = $data['name'];
+        $this->description = $data['description'];
     }
 
     public function setInputFilter(InputFilterInterface $inputFilter)
@@ -133,27 +145,39 @@ class VatRate implements InputFilterAwareInterface
             )));
 
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'value',
+                'name'     => 'name',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
-                    new NumberFormat("en_US", NumberFormatter::TYPE_DOUBLE)
                 ),
                 'validators' => array(
                     array(
-                        'name' => 'Float',
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 15,
+                        ),
                     ),
-                    array (
-                        'name' => 'Between',
-                        'options' => array (
-                            'min' => 0,
-                            'max' => 100,
-                            'inclusive' => true,
-                            'messages' => array(
-                                BetweenValidator::NOT_BETWEEN_STRICT => 'Vat rate must be between %min% and %max%',
-                            )
-                        )
+                ),
+            )));
+
+            $inputFilter->add($factory->createInput(array(
+                'name'     => 'description',
+                'required' => false,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 3,
+                            'max'      => 63,
+                        ),
                     ),
                 ),
             )));

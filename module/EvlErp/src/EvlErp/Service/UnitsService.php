@@ -9,15 +9,15 @@
 namespace EvlErp\Service;
 
 use Doctrine\ORM\EntityManager;
-use EvlErp\Doctrine\Repository\VatRatesRepository;
-use EvlErp\Entity\VatRate;
+use EvlErp\Doctrine\Repository\UnitsRepository;
+use EvlErp\Entity\Unit;
 
 /**
- * Class VatRatesService - service used to perform basic logic operations on VAT rates.
+ * Class UnitsService - service used to perform basic logic operations on units.
  *
  * @package EvlErp\Service
  */
-class VatRatesService implements VatRatesServiceInterface
+class UnitsService implements UnitsServiceInterface
 {
     /**
      * @var EntityManager
@@ -26,26 +26,26 @@ class VatRatesService implements VatRatesServiceInterface
 
 
     /**
-     * Method used to obtain VAT rates repository.
+     * Method used to obtain orders repository.
      *
-     * @return VatRatesRepository
+     * @return UnitsRepository
      */
-    public function getVatRatesRepository()
+    public function getUnitsRepository()
     {
-        return $this->getEntityManager()->getRepository('EvlErp\Entity\VatRate');
+        return $this->getEntityManager()->getRepository('EvlErp\Entity\Unit');
     }
 
     /**
-     * Method used to persist new VAT rate in database
+     * Method used to persist new unit in database
      *
-     * @param VatRate $vatRate
+     * @param Unit $unit
      * @return boolean
      */
-    public function addVatRate(VatRate $vatRate)
+    public function addUnit(Unit $unit)
     {
         $this->getEntityManager()->beginTransaction();
         try {
-            $this->getEntityManager()->persist($vatRate);
+            $this->getEntityManager()->persist($unit);
             // commit transaction
             $this->getEntityManager()->flush();
             $this->getEntityManager()->commit();

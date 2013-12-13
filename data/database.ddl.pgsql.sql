@@ -4,3 +4,11 @@ CREATE TABLE vat_rates (
 
   PRIMARY KEY(id)
 );
+
+CREATE TABLE units (
+  id SERIAL NOT NULL,
+  name VARCHAR(15) NOT NULL,
+  description VARCHAR(63) DEFAULT NULL,
+
+  PRIMARY KEY(id)
+);

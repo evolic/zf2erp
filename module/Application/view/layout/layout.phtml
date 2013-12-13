@@ -49,9 +49,10 @@ $firephp->info($locale);
             <li class="active"><a href="<?php echo $this->url('home', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Home') ?></a></li>
             <li><a href=""><?php echo $this->translate('Products') ?></a></li>
             <li><a href=""><?php echo $this->translate('Product categories') ?></a></li>
-            <li><a href=""><?php echo $this->translate('Units') ?></a></li>
+            <li><a href="<?php echo $this->url('erp/units', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Units') ?></a></li>
             <li><a href="<?php echo $this->url('erp/vat-rates', array('locale' => $this->locale)); ?>"><?php echo $this->translate('VAT rates') ?></a></li>
             <li><a href=""><?php echo $this->translate('Suppliers') ?></a></li>
+            <li><a href=""><?php echo $this->translate('Companies') ?></a></li>
             <?php /*?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>

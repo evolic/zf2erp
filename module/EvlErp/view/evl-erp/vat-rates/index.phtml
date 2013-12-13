@@ -30,7 +30,7 @@ $this->headTitle($title);
     <tr>
         <td><?php echo ++$idx; ?></td>
         <td><?php echo $vatRate['id']; ?></td>
-        <td class="datetime"><?php echo $this->escapeHtml($vatRate['value']);?>%</td>
+        <td><?php echo $this->escapeHtml($vatRate['value']);?>%</td>
         <td>
             <a href="<?php echo $this->url('erp/vat-rates/actions',
                 array('locale' => $this->locale, 'action'=>'delete', 'id' => $vatRate['id'])

@@ -1,7 +1,7 @@
-form {
+form#vat-rate-form {
     width: 400px;
 }
 
-form label.value {
+form#vat-rate-form label.value {
     width: 170px;
 }

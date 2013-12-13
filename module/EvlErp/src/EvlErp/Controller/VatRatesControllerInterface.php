@@ -20,9 +20,9 @@ interface VatRatesControllerInterface
 
 
     /**
-     * Method used to inject form handling a lunch ordering.
+     * Method used to inject form handling adding new VAT rate.
      *
-     * @param VatRateForm $orderLunchForm
+     * @param VatRateForm $form
      */
     public function setVatRateForm(VatRateForm $form);
 
@@ -36,7 +36,7 @@ interface VatRatesControllerInterface
     /**
      * Method used to inject VAT rates service.
      *
-     * @param VatRatesService $ordersService
+     * @param VatRatesService $service
      */
     public function setVatRatesService(VatRatesService $service);
 

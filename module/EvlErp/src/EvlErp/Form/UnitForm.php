@@ -9,28 +9,42 @@
 namespace EvlErp\Form;
 
 use DoctrineModule\Validator\NoObjectExists as NoObjectExistsValidator;
-use EvlErp\Doctrine\Repository\VatRatesRepository;
+use EvlErp\Doctrine\Repository\UnitsRepository;
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilterProviderInterface;
 
-class VatRateForm extends Form implements InputFilterProviderInterface
+class UnitForm extends Form implements InputFilterProviderInterface
 {
     public function __construct($name = null)
     {
         // we want to ignore the name passed
-        parent::__construct('vat-rate-form');
+        parent::__construct('unit-form');
         $this->setAttribute('method', 'post');
 
         $this->add(array(
             'type' => 'Zend\Form\Element\Text',
-            'name' => 'value',
+            'name' => 'name',
             'attributes' => array(
-                'value' => '23',
             ),
             'options' => array(
-                'label' => 'VAT rate',
+                'class' => 'form-control',
+                'label' => 'Name',
                 'label_attributes' => array(
-                    'class' => 'form-control value'
+                    'class' => 'name'
+                ),
+            )
+        ));
+
+        $this->add(array(
+            'type' => 'Zend\Form\Element\Text',
+            'name' => 'description',
+            'attributes' => array(
+            ),
+            'options' => array(
+                'class' => 'form-control',
+                'label' => 'Description',
+                'label_attributes' => array(
+                    'class' => 'description'
                 ),
             )
         ));
@@ -58,11 +72,11 @@ class VatRateForm extends Form implements InputFilterProviderInterface
     }
 
     /**
-     * Attaches Object-Exists validator from DoctrineModule to not add the same VAT rate twice
+     * Attaches Object-Exists validator from DoctrineModule to not add the same unit twice
      *
-     * @param VatRatesRepository $repository
+     * @param UnitsRepository $repository
      */
-    public function attachObjectExistsValidator(VatRatesRepository $repository)
+    public function attachObjectExistsValidator(UnitsRepository $repository)
     {
         $firephp = \FirePHP::getInstance();
         $firephp->group(__METHOD__);
@@ -71,17 +85,17 @@ class VatRateForm extends Form implements InputFilterProviderInterface
 
         $validator = new NoObjectExistsValidator(array(
             'object_repository' => $repository,
-            'fields' => array('value'),
+            'fields' => array('name'),
             'messages' => array(
-                NoObjectExistsValidator::ERROR_OBJECT_FOUND => 'Specified VAT rate is already present in the database'
+                NoObjectExistsValidator::ERROR_OBJECT_FOUND => 'Specified unit is already present in the database'
             )
         ));
 
-        $firephp->info($this->getInputFilter()->get('value')->getValidatorChain()->getValidators(), 'validators before');
+        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators before');
 
-        $this->getInputFilter()->get('value')->getValidatorChain()->attach($validator);
+        $this->getInputFilter()->get('name')->getValidatorChain()->attach($validator);
 
-        $firephp->info($this->getInputFilter()->get('value')->getValidatorChain()->getValidators(), 'validators after');
+        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators after');
 
         $firephp->groupEnd();
     }

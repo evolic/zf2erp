@@ -1,0 +1,10 @@
+form#unit-form {
+    width: 480px;
+}
+
+form#unit-form label span {
+    display: block;
+}
+form#unit-form label.description input {
+    width: 100%;
+}

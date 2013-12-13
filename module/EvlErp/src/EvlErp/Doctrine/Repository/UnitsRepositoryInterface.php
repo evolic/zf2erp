@@ -10,14 +10,14 @@ namespace EvlErp\Doctrine\Repository;
 
 use Doctrine\ORM\Query;
 
-interface VatRatesRepositoryInterface
+interface UnitsRepositoryInterface
 {
     /**
-     * Method used to obtain orders repository.
+     * Method used to obtain available Units from the database
      *
      * @param array $criteria - additional criteria
      * @param int $hydrate - result hydration mode
-     * @return array - available VAT rates
+     * @return array - available units
      */
-    public function getVatRates($criteria, $hydrate = Query::HYDRATE_OBJECT);
+    public function getUnits($criteria, $hydrate = Query::HYDRATE_OBJECT);
 }
