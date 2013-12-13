@@ -47,6 +47,7 @@ return array(
         ),
         'invokables' => array(
             'formBootstrapRow' => 'EvlCore\Form\View\Helper\FormBootstrapRow',
+            'bodyScript' => 'EvlCore\View\Helper\BodyScript',
         ),
     ),
 

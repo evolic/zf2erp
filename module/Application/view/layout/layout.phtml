@@ -25,10 +25,7 @@ $firephp->info($locale);
   <!-- Scripts -->
   <?php
   $idx = 0;
-  echo $this->headScript()->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
-                          ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/1.9.0/jquery.min.js')
-                          ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/bootstrap/3.0.3/js/bootstrap.min.js')
-                          ->offsetSetFile(++$idx, $this->basePath() . '/js/core/change-lang.js')
+//   echo $this->headScript()->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
   ?>
 </head>
 <body>
@@ -124,5 +121,14 @@ if ($this->messages || $this->errors) {
 
     </div> <!-- /container -->
   </div> <!-- /ct -->
+
+<!-- Scripts -->
+<?php
+$idx = 0;
+echo $this->bodyScript()->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
+                        ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/1.9.0/jquery.min.js')
+                        ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/bootstrap/3.0.3/js/bootstrap.min.js')
+                        ->offsetSetFile(++$idx, $this->basePath() . '/js/core/change-lang.js')
+?>
 </body>
 </html>
