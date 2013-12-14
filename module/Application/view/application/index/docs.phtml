@@ -1,0 +1,55 @@
+<?php
+// module/EvlErp/view/evl-erp/vat-rates/add.phtml:
+$firephp = \FirePHP::getInstance();
+$firephp->info($this->locale);
+
+// Le styles
+$idx = 100;
+$this->headLink()
+//     ->offsetSetStylesheet(++$idx, $this->basePath() . '/js/vendor/fancybox/2.1.5/jquery.fancybox.css', 'media')
+    ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/3d.css', 'all')
+    ;
+
+// Scripts
+$idx = 100;
+$this->bodyScript()
+//     ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/mousewheel/3.0.6/jquery.mousewheel.min.js')
+//     ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/fancybox/2.1.5/jquery.fancybox.min.js')
+//     ->offsetSetFile(++$idx, $this->basePath() . '/js/module/app/docs.js')
+;
+?>
+
+<h1><?php echo $this->translate('Documentation'); ?></h1>
+
+<p>
+  Project was implemented according to specification made for the Contest organized by <a href="www.unity.pl">Grupa Unity</a>.
+  It was related to Techcamp conference.
+</p>
+
+<p>
+  Full specification in Polish you can find out <a href="/docs/Zadanie-programistyczne2.docx">here</a> (MS Office 2007 document).
+</p>
+
+<p>In the project there were used:</p>
+
+<ul>
+  <li>PostgreSQL,</li>
+  <li>Zend Framework 2.x,</li>
+  <li>Doctrine 2 ORM,</li>
+  <li>Gedmo - Doctrine 2 ORM Extension,</li>
+  <li>jQuery 1.9.x,</li>
+  <li>Bootstrap 3.x,</li>
+  <li>Bootstrap TouchSpin</li>
+</ul>
+
+<h2><?php echo $this->translate('ERD Diagram made with DB Designer'); ?></h2>
+
+<div class="rotated-ct">
+  <a class="fancybox" rel="group" href="/docs/erd-diagram.png">
+    <img class="rotated" src="/docs/erd-diagram.png" alt="ERD Diagram" />
+  </a>
+  <?php /*?>
+  <br>
+  <span><?php echo $this->translate('Click on the picture to see full ERD diagram'); ?></span>
+  <?php */?>
+</div>

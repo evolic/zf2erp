@@ -23,7 +23,7 @@ class UnitsServiceFactory implements FactoryInterface
      * Factory method.
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return OrdersService|mixed
+     * @return UnitsService|mixed
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {

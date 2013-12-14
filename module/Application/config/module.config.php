@@ -1,4 +1,7 @@
 <?php
+
+use Gedmo\Translatable\TranslatableListener;
+
 return array(
     'controllers' => array(
         'invokables' => array(
@@ -12,6 +15,21 @@ return array(
         ),
         'factories' => array(
 //             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+            'gedmo_translatable_listener' => function ($sm) {
+                // Gedmo: attach listener to event manager
+                $translatableListener = new TranslatableListener();
+
+                // set the default locale
+                $config = $sm->get('Configuration');
+                $localesConfig = $config['locales'];
+                $defaultLocale = $localesConfig['default'];
+                $translatableListener->setDefaultLocale($defaultLocale);
+
+                // will not fallback to default locale translations instead of empty values
+                $translatableListener->setTranslationFallback(false);
+
+                return $translatableListener;
+            },
         ),
         'services' => array(
             'session' => new Zend\Session\Container('zf2erp'),
@@ -86,7 +104,20 @@ return array(
                         'action'        => 'not-supported-locale',
                     ),
                 ),
-            )
+            ),
+            'docs' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/:locale/docs',
+                    'constraints' => array(
+                        'locale' => '[a-z]{2}(-[A-Z]{2}){0,1}'
+                    ),
+                    'defaults' => array(
+                        'controller' => 'app/index',
+                        'action'     => 'docs'
+                    ),
+                ),
+            ),
         ),
     ),
     'translator' => array(
@@ -132,10 +163,24 @@ return array(
                     'Gedmo\Sluggable\SluggableListener',
 //                     'Gedmo\Loggable\LoggableListener',
 //                     'Gedmo\Sortable\SortableListener'
+//                     'Gedmo\Translatable\TranslatableListener',
+                    'gedmo_translatable_listener',
                 ),
             ),
         ),
         'driver' => array(
-        )
+            'translatable_metadata_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(
+                    'vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity',
+                ),
+            )
+        ),
+        'orm_default' => array(
+            'drivers' => array(
+                'Gedmo\Translatable\Entity' => 'translatable_metadata_driver',
+            ),
+        ),
     ),
 );

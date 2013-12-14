@@ -97,7 +97,7 @@ class VatRatesController extends DefaultController
                 if ($this->getVatRatesService()->addVatRate($vatRate)) {
                     $this->FlashMessenger()->addSuccessMessage('New VAT rate has been successfully added');
                 } else {
-                    $this->FlashMessenger()->addErrorMessage('Error occured during adding new VAT rate');
+                    $this->FlashMessenger()->addErrorMessage('Error occurred while adding new VAT rate');
                 }
 
                 // Redirect to list of VAT rates

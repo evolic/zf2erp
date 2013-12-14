@@ -34,7 +34,12 @@ class UnitsRepository extends EntityRepository
             ->from('EvlErp\Entity\Unit', 'u');
 
         if (isset($criteria['order_by']) && $criteria['order_by']) {
-            $qb->orderBy('u.' . $criteria['order_by']);
+            switch ($criteria['order_by']) {
+                case 'name':
+                case 'description':
+                    $qb->orderBy('u.' . $criteria['order_by']);
+                    break;
+            }
         } else {
             $qb->orderBy('u.name', 'ASC');
         }

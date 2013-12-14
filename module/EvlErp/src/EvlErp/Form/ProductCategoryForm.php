@@ -25,6 +25,7 @@ class ProductCategoryForm extends Form implements InputFilterProviderInterface
             'type' => 'Zend\Form\Element\Text',
             'name' => 'name',
             'attributes' => array(
+                'class' => 'form-control',
             ),
             'options' => array(
                 'class' => 'form-control',

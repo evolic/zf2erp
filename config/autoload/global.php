@@ -44,7 +44,7 @@ return array(
         )
     ),
     'locales' => array(
-        'default' => 'en-US',
+        'default' => 'pl-PL',
         'list' => array(
             'en-US' => 'English',
             'pl-PL' => 'Polski',

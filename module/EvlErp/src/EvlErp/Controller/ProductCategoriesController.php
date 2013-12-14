@@ -97,7 +97,7 @@ class ProductCategoriesController extends DefaultController
                 if ($this->getProductCategoriesService()->addProductCategory($productCategory)) {
                     $this->FlashMessenger()->addSuccessMessage('New product category has been successfully added');
                 } else {
-                    $this->FlashMessenger()->addErrorMessage('Error occured during adding new product category');
+                    $this->FlashMessenger()->addErrorMessage('Error occurred while adding new product category');
                 }
 
                 // Redirect to list of productCategories

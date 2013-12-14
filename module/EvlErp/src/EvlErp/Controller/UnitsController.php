@@ -97,7 +97,7 @@ class UnitsController extends DefaultController
                 if ($this->getUnitsService()->addUnit($unit)) {
                     $this->FlashMessenger()->addSuccessMessage('New unit has been successfully added');
                 } else {
-                    $this->FlashMessenger()->addErrorMessage('Error occured during adding new unit');
+                    $this->FlashMessenger()->addErrorMessage('Error occurred while adding new unit');
                 }
 
                 // Redirect to list of units

@@ -1,0 +1,17 @@
+.rotated-ct {
+  position: relative;
+  overflow: hidden;
+  /*width: 640px;
+  height: 480px;*/
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.rotated-ct > a > img.rotated {/*
+  position: relative;
+  top: -230px;
+  left: 10px;
+  transform-origin: 50% 60% 0px;
+  transform: perspective(400px) rotateY(20deg) translate(-10px, -30px) translate3d(45px, 10px, 30px) rotateZ(-34deg) rotateZ(-15deg) rotate3d(0.42, 0.4, 0.32, 48deg);
+*/}

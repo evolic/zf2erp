@@ -16,6 +16,11 @@ class IndexController extends DefaultController
         return $this->viewModel;
     }
 
+    public function docsAction()
+    {
+      return $this->viewModel;
+    }
+
     public function notSupportedLocaleAction()
     {
         return $this->viewModel;

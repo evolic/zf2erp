@@ -1,0 +1,7 @@
+form#country-form {
+    width: 480px;
+}
+
+form#country-form label span {
+    display: block;
+}

@@ -34,7 +34,11 @@ class ProductCategoriesRepository extends EntityRepository
             ->from('EvlErp\Entity\ProductCategory', 'c');
 
         if (isset($criteria['order_by']) && $criteria['order_by']) {
-            $qb->orderBy('c.' . $criteria['order_by']);
+            switch ($criteria['order_by']) {
+                case 'name':
+                    $qb->orderBy('c.' . $criteria['order_by']);
+                    break;
+            }
         } else {
             $qb->orderBy('c.name', 'ASC');
         }

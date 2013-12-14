@@ -45,7 +45,7 @@ $this->headTitle($title);
 
 <p><?php
 $count = count($units);
-$message = $this->translatePlural('Found %d unit.', 'Found %d units.', $count, 'order', $this->locale);
+$message = $this->translatePlural('Found %d unit.', 'Found %d units.', $count, 'evl-erp', $this->locale);
 echo sprintf($message, $count);
 ?></p>
 <?php else:?>

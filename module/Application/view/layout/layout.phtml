@@ -40,33 +40,40 @@ $firephp->info($locale);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">ZF2 ERP</a>
+          <a class="navbar-brand" href="<?php ?>">ZF2 ERP</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" style="width: 680px;">
             <li class="active"><a href="<?php echo $this->url('home', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Home') ?></a></li>
-            <li><a href=""><?php echo $this->translate('Products') ?></a></li>
-            <li><a href="<?php echo $this->url('erp/product-categories', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Product categories') ?></a></li>
-            <li><a href="<?php echo $this->url('erp/units', array('locale' => $this->locale)); ?>"><?php echo $this->translate('Units') ?></a></li>
-            <li><a href="<?php echo $this->url('erp/vat-rates', array('locale' => $this->locale)); ?>"><?php echo $this->translate('VAT rates') ?></a></li>
-            <li><a href=""><?php echo $this->translate('Suppliers') ?></a></li>
-            <li><a href=""><?php echo $this->translate('Companies') ?></a></li>
-            <?php /*?>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->translate('Products') ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="<?php echo $this->url('erp/product-categories', array('locale' => $this->locale)); ?>">
+                    <?php echo $this->translate('Product categories') ?>
+                </a></li>
+                <li><a href="#">
+                    <?php echo $this->translate('Products list'); ?>
+                </a></li>
                 <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="<?php echo $this->url('erp/units', array('locale' => $this->locale)); ?>">
+                    <?php echo $this->translate('Units') ?>
+                </a></li>
                 <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="<?php echo $this->url('erp/vat-rates', array('locale' => $this->locale)); ?>">
+                    <?php echo $this->translate('VAT rates') ?>
+                </a></li>
               </ul>
             </li>
-            <?php */?>
+            <li><a href=""><?php echo $this->translate('Suppliers') ?></a></li>
+            <li><a href=""><?php echo $this->translate('Companies') ?></a></li>
+            <li><a href="<?php echo $this->url('erp/countries', array('locale' => $this->locale)); ?>">
+                <?php echo $this->translate('Countries') ?>
+            </a></li>
+            <li style="float: right"><a href="<?php echo $this->url('docs', array('locale' => $this->locale)); ?>">
+              <?php echo $this->translate('Documentation') ?>
+            </a></li>
           </ul>
           <?php /*?>
           <form class="navbar-form navbar-left" role="search">
@@ -86,7 +93,7 @@ $firephp->info($locale);
       </nav>
     </div>
 
-    <div class="container">
+    <div class="x-container">
 
 <?php
 
@@ -126,10 +133,11 @@ if ($this->messages || $this->errors) {
 <!-- Scripts -->
 <?php
 $idx = 0;
-echo $this->bodyScript()->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
-                        ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/1.9.0/jquery.min.js')
-                        ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/bootstrap/3.0.3/js/bootstrap.min.js')
-                        ->offsetSetFile(++$idx, $this->basePath() . '/js/core/change-lang.js')
+echo $this->bodyScript()
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/1.9.0/jquery.min.js')
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/bootstrap/3.0.3/js/bootstrap.min.js')
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/core/change-lang.js')
 ?>
 </body>
 </html>

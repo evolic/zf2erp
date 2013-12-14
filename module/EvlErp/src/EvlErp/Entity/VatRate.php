@@ -30,19 +30,19 @@ use Zend\Validator\Between as BetweenValidator;
  */
 class VatRate implements InputFilterAwareInterface
 {
-    protected $inputFilter;
+    private $inputFilter;
 
     /**
      * @ORM\Id
      * @ORM\Column(type="integer");
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="float")
      */
-    protected $value;
+    private $value;
 
 //     /**
 //      * Products using specified VAT rate

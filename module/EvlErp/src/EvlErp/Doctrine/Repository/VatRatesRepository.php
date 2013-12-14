@@ -34,7 +34,11 @@ class VatRatesRepository extends EntityRepository
             ->from('EvlErp\Entity\VatRate', 'vr');
 
         if (isset($criteria['order_by']) && $criteria['order_by']) {
-            $qb->orderBy('vr.' . $criteria['order_by']);
+            switch ($criteria['order_by']) {
+                case 'value':
+                    $qb->orderBy('vr.' . $criteria['order_by']);
+                    break;
+            }
         } else {
             $qb->orderBy('vr.value', 'ASC');
         }

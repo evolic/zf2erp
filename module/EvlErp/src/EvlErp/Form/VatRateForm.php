@@ -30,7 +30,7 @@ class VatRateForm extends Form implements InputFilterProviderInterface
             'options' => array(
                 'label' => 'VAT rate',
                 'label_attributes' => array(
-                    'class' => 'form-control value'
+                    'class' => 'value'
                 ),
             )
         ));

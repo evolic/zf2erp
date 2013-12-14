@@ -1,0 +1,56 @@
+<?php
+use EvlErp\Entity\Country;
+
+// module/EvlErp/view/evl-erp/countries/index.phtml:
+$firephp = \FirePHP::getInstance();
+$firephp->info(__FILE__);
+$firephp->info($this->locale);
+$title = 'Countries list';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('erp/countries/actions', array(
+        'locale' => $this->locale,
+        'action'=>'add'
+    ));?>"><?php echo $this->translate('Add new country'); ?></a>
+</p>
+
+<?php if ($countries): ?>
+<table class="table countries" style="width: 640px;">
+<thead>
+    <tr>
+        <th style="width: 30px;"><?php echo $this->translate('#'); ?></th>
+        <th style="width: 40px;"><?php echo $this->translate('ID'); ?></th>
+        <th style="width: 50px;"><?php echo $this->translate('Name'); ?></th>
+        <th style="width: 80px;">&nbsp;</th>
+    </tr>
+</thead>
+<tbody>
+    <?php $idx = 0; ?>
+    <?php foreach ($countries as $country) : ?>
+    <?php
+    /* @var $country Country */
+    ?>
+    <tr>
+        <td><?php echo ++$idx; ?></td>
+        <td><?php echo $country->getId(); ?></td>
+        <td><?php echo $this->escapeHtml($country->getName());?></td>
+        <td>
+            <a href="<?php echo $this->url('erp/countries/actions',
+                array('locale' => $this->locale, 'action'=>'delete', 'id' => $country->getId())
+            );?>"><?php echo $this->translate('Delete'); ?></a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
+
+<p><?php
+$count = count($countries);
+$message = $this->translatePlural('Found %d country.', 'Found %d countries.', $count, 'evl-erp', $this->locale);
+echo sprintf($message, $count);
+?></p>
+<?php else:?>
+<p><?php echo $this->translate('No country was found.'); ?></p>
+<?php endif; ?>

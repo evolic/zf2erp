@@ -4,6 +4,7 @@ body {
 .ct {
   width: 970px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #top-nav {
@@ -54,5 +55,5 @@ p.welcome a img {
 }
 
 form label {
-    display: block;
+  display: block;
 }

@@ -28,19 +28,19 @@ use Zend\InputFilter\InputFilterInterface;
  */
 class ProductCategory implements InputFilterAwareInterface
 {
-    protected $inputFilter;
+    private $inputFilter;
 
     /**
      * @ORM\Id
      * @ORM\Column(type="integer");
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=63)
      */
-    protected $name;
+    private $name;
 
 
 //     /**

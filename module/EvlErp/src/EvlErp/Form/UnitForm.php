@@ -25,9 +25,9 @@ class UnitForm extends Form implements InputFilterProviderInterface
             'type' => 'Zend\Form\Element\Text',
             'name' => 'name',
             'attributes' => array(
+                'class' => 'form-control',
             ),
             'options' => array(
-                'class' => 'form-control',
                 'label' => 'Name',
                 'label_attributes' => array(
                     'class' => 'name'
@@ -39,9 +39,9 @@ class UnitForm extends Form implements InputFilterProviderInterface
             'type' => 'Zend\Form\Element\Text',
             'name' => 'description',
             'attributes' => array(
+                'class' => 'form-control',
             ),
             'options' => array(
-                'class' => 'form-control',
                 'label' => 'Description',
                 'label_attributes' => array(
                     'class' => 'description'

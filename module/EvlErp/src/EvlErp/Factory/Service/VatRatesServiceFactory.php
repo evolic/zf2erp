@@ -23,7 +23,7 @@ class VatRatesServiceFactory implements FactoryInterface
      * Factory method.
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return OrdersService|mixed
+     * @return VatRatesService|mixed
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
