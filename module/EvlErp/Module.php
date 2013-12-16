@@ -40,9 +40,5 @@ class Module
      */
     public function onBootstrap(MvcEvent $e)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
-        $firephp->groupEnd();
     }
 }

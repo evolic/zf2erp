@@ -1,11 +1,15 @@
 <?php
 namespace EvlErp;
 
+use EvlErp\Controller\CompaniesController;
 use EvlErp\Validator\CountryNotExists as CountryNotExistsValidator;
+use Zend\Mvc\Controller\ControllerManager;
+use EvlErp\Form\Fieldset\CompanyFieldset;
 
 return array(
     'service_manager' => array(
         'factories' => array(
+            'CompaniesService' => 'EvlErp\Factory\Service\CompaniesServiceFactory',
             'CountriesService' => 'EvlErp\Factory\Service\CountriesServiceFactory',
             'ProductCategoriesService' => 'EvlErp\Factory\Service\ProductCategoriesServiceFactory',
             'UnitsService' => 'EvlErp\Factory\Service\UnitsServiceFactory',
@@ -14,6 +18,7 @@ return array(
     ),
     'controllers' => array(
         'factories' => array(
+            'evl-erp/companies' => 'EvlErp\Factory\Controller\CompaniesControllerFactory',
             'evl-erp/countries' => 'EvlErp\Factory\Controller\CountriesControllerFactory',
             'evl-erp/product-categories' => 'EvlErp\Factory\Controller\ProductCategoriesControllerFactory',
             'evl-erp/units' => 'EvlErp\Factory\Controller\UnitsControllerFactory',
@@ -44,6 +49,31 @@ return array(
                     ),
                 ),
                 'child_routes' => array(
+                    'companies' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/companies',
+                            'defaults' => array(
+                                'controller' => 'evl-erp/companies',
+                            ),
+                        ),
+                        'child_routes' => array(
+                            'actions' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/:action[/:id][,[:page],[:order_by]].html',
+                                    'constraints' => array(
+                                        'action'   => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'       => '[0-9]+',
+                                        'page'     => '[0-9]+',
+                                        'order_by' => '[a-z][a-z_]*',
+                                    ),
+                                ),
+                                'may_terminate' => true,
+                            ),
+                        ),
+                        'may_terminate' => true,
+                    ),
                     'countries' => array(
                         'type' => 'segment',
                         'options' => array(
@@ -178,10 +208,16 @@ return array(
     'translator' => array(
         'translation_file_patterns' => array(
             array(
+                'type'     => 'gettext',
+                'base_dir' => __DIR__ . '/../language',
+                'pattern'  => '%s.mo',
+                'text_domain' => 'evl-erp'
+            ),
+            array(
                 'type'     => 'phparray',
                 'base_dir' => __DIR__ . '/../language',
                 'pattern'  => '%s.php',
-                'text_domain' => 'album'
+                'text_domain' => 'evl-erp-php'
             ),
         ),
     ),

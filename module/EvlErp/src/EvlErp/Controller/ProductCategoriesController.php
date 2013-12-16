@@ -65,9 +65,6 @@ class ProductCategoriesController extends DefaultController
 
     public function addAction()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $locale = $this->params()->fromRoute('locale');
 
         if (!$locale) {
@@ -82,16 +79,13 @@ class ProductCategoriesController extends DefaultController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $firephp->info('is post');
             $productCategory = new ProductCategory();
             $form->setInputFilter($productCategory->getInputFilter());
             $form->attachObjectExistsValidator($this->getProductCategoriesService()->getProductCategoriesRepository());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $firephp->info('is valid');
                 $values = $form->getData();
-                $firephp->info($values, '$values');
                 $productCategory->populate($values);
 
                 if ($this->getProductCategoriesService()->addProductCategory($productCategory)) {
@@ -102,19 +96,12 @@ class ProductCategoriesController extends DefaultController
 
                 // Redirect to list of productCategories
                 return $this->redirect()->toRoute('erp/product-categories', array('locale' => $locale));
-            } else {
-                $firephp->warn('not valid');
-                $values = $form->getData();
-                $firephp->info($values, '$values');
-                $firephp->error($form->getMessages(), 'error messages');
             }
         }
 
         $this->viewModel->setVariables(array(
             'form' => $form,
         ));
-
-        $firephp->groupEnd();
 
         return $this->viewModel;
     }

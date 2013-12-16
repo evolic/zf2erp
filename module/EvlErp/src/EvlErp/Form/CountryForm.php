@@ -29,7 +29,6 @@ class CountryForm extends Form implements InputFilterProviderInterface
                 'class' => 'form-control',
             ),
             'options' => array(
-                'class' => 'form-control',
                 'label' => 'Name',
                 'label_attributes' => array(
                     'class' => 'name'

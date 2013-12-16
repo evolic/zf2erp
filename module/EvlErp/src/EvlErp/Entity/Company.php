@@ -88,7 +88,7 @@ class Company implements InputFilterAwareInterface
 
 
     /**
-     * Cuisine instance
+     * Country instance
      *
      * @var EvlErp\Entity\Country
      * @ORM\ManyToOne(targetEntity="Country", inversedBy="companies")
@@ -114,11 +114,31 @@ class Company implements InputFilterAwareInterface
 
 
     /**
+     * @param string $name
+     * @return Company
+     */
+    public function setName($name)
+    {
+      $this->name = $name;
+      return $this;
+    }
+
+    /**
      * @return string
      */
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param string $city
+     * @return Company
+     */
+    public function setCity($city)
+    {
+      $this->city = $city;
+      return $this;
     }
 
     /**
@@ -130,6 +150,16 @@ class Company implements InputFilterAwareInterface
     }
 
     /**
+     * @param string $postcode
+     * @return Company
+     */
+    public function setPostcode($postcode)
+    {
+      $this->postcode = $postcode;
+      return $this;
+    }
+
+    /**
      * @return string
      */
     public function getPostcode()
@@ -138,23 +168,60 @@ class Company implements InputFilterAwareInterface
     }
 
     /**
+     * @param string $address
+     * @return Company
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getAddress()
     {
-        return $this->address;
+      return $this->address;
+    }
+
+    public function setCountry($country)
+    {
+        $this->country = $country;
+        return $this;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
     }
 
 
     /**
+     * Gets VAT Identification Number (e.g. NIP in Poland)
+     *
      * @return string
      */
     public function getVatIN()
     {
-        return $this->vatid;
+        return $this->vatin;
     }
 
     /**
+     * Sets VAT Identification Number (e.g. NIP in Poland)
+     *
+     * @param string $identificationNumber VAT Identification Number
+     * @return Company
+     */
+    public function setVatIN($identificationNumber)
+    {
+        $this->vatin = $identificationNumber;
+        return $this;
+    }
+
+    /**
+     * Gets Enterprise Identification Number (e.g. REGON in Poland)
+     *
      * @return string
      */
     public function getEIN()
@@ -163,6 +230,20 @@ class Company implements InputFilterAwareInterface
     }
 
     /**
+     * Sets Enterprise Identification Number (e.g. REGON in Poland)
+     *
+     * @param string $identificationNumber Enterprise Identification Number
+     * @return Company
+     */
+    public function setEIN($identificationNumber)
+    {
+        $this->ein = $identificationNumber;
+        return $this;
+    }
+
+    /**
+     * Gets Business Entity Identification Number (e.g. KRS in Poland)
+     *
      * @return string
      */
     public function getBEIN()
@@ -170,6 +251,17 @@ class Company implements InputFilterAwareInterface
         return $this->bein;
     }
 
+    /**
+     * Sets Business Entity Identification Number (e.g. KRS in Poland)
+     *
+     * @param string $identificationNumber Enterprise Identification Number
+     * @return Company
+     */
+    public function setBEIN($identificationNumber)
+    {
+        $this->bein = $identificationNumber;
+        return $this;
+    }
 
     /**
      * Magic getter to expose protected properties.

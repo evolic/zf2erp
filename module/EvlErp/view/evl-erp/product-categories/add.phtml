@@ -1,7 +1,5 @@
 <?php
 // module/EvlErp/view/evl-erp/product-categories/add.phtml:
-$firephp = \FirePHP::getInstance();
-$firephp->info($this->locale);
 
 // Le styles
 $idx = 100;
@@ -9,7 +7,7 @@ $this->headLink()->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/
     ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-erp/product-categories/add.css', 'all')
     ;
 
-$title = 'Add new product category';
+$title = $this->translate('Add new product category', 'evl-erp');
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>

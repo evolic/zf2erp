@@ -52,13 +52,18 @@ return array(
     ),
 
     'translator' => array(
-        'locale' => 'en_US',
         'translation_file_patterns' => array(
             array(
-                'type' => 'gettext',
+                'type'     => 'gettext',
                 'base_dir' => __DIR__ . '/../language',
-                'pattern' => '%s.mo',
-                'text_domain' => __NAMESPACE__,
+                'pattern'  => '%s.mo',
+                'text_domain' => 'evl-core'
+            ),
+            array(
+                'type'     => 'phparray',
+                'base_dir' => __DIR__ . '/../language',
+                'pattern'  => '%s.php',
+                'text_domain' => 'evl-core-php'
             ),
         ),
     ),

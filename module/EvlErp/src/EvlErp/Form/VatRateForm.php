@@ -61,14 +61,10 @@ class VatRateForm extends Form implements InputFilterProviderInterface
      * Attaches Object-Exists validator from DoctrineModule to not add the same VAT rate twice
      *
      * @param VatRatesRepository $repository
+     * @return VatRateForm
      */
     public function attachObjectExistsValidator(VatRatesRepository $repository)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
-        $firephp->info(get_class($repository));
-
         $validator = new NoObjectExistsValidator(array(
             'object_repository' => $repository,
             'fields' => array('value'),
@@ -77,12 +73,8 @@ class VatRateForm extends Form implements InputFilterProviderInterface
             )
         ));
 
-        $firephp->info($this->getInputFilter()->get('value')->getValidatorChain()->getValidators(), 'validators before');
-
         $this->getInputFilter()->get('value')->getValidatorChain()->attach($validator);
 
-        $firephp->info($this->getInputFilter()->get('value')->getValidatorChain()->getValidators(), 'validators after');
-
-        $firephp->groupEnd();
+        return $this;
     }
 }

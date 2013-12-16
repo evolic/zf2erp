@@ -1,5 +1,9 @@
 /** Bootstrap Spinner with errors **/
 
+.input-group .btn {
+    margin-right: 10px;
+}
+
 .has-error .input-group-btn .btn, .has-error .input-group-addon {
     border-color: #A94442;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;

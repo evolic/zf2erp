@@ -40,7 +40,7 @@ $firephp->info($locale);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php ?>">ZF2 ERP</a>
+          <a class="navbar-brand" href="/">ZF2 ERP</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,9 +67,11 @@ $firephp->info($locale);
               </ul>
             </li>
             <li><a href=""><?php echo $this->translate('Suppliers') ?></a></li>
-            <li><a href=""><?php echo $this->translate('Companies') ?></a></li>
+            <li><a href="<?php echo $this->url('erp/companies', array('locale' => $this->locale)); ?>">
+              <?php echo $this->translate('Companies') ?>
+            </a></li>
             <li><a href="<?php echo $this->url('erp/countries', array('locale' => $this->locale)); ?>">
-                <?php echo $this->translate('Countries') ?>
+              <?php echo $this->translate('Countries') ?>
             </a></li>
             <li style="float: right"><a href="<?php echo $this->url('docs', array('locale' => $this->locale)); ?>">
               <?php echo $this->translate('Documentation') ?>

@@ -27,16 +27,11 @@ class VatRatesControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $vatRateForm = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\VatRateForm');
 
         $ctr = new VatRatesController();
         $ctr->setVatRateForm($vatRateForm);
         $ctr->setVatRatesService($serviceLocator->getServiceLocator()->get('VatRatesService'));
-
-        $firephp->groupEnd();
 
         return $ctr;
     }

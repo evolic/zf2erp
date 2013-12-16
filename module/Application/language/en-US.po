@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2013-03-23 14:33+0100\n"
+"POT-Creation-Date: 2013-12-16 11:10+0100\n"
+"PO-Revision-Date: 2013-12-16 11:10+0100\n"
 "Last-Translator: Tomasz Kuter <evolic@interia.pl>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: en_US\n"
@@ -15,24 +15,64 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/layout/layout.phtml:6 ../view/layout/layout.phtml:33
-msgid "Skeleton Application"
-msgstr "Tutorial"
-
-#: ../view/layout/layout.phtml:36
-msgid "Home"
+#: ../view/application/.translations/translations.phtml:3
+msgid "Name"
 msgstr ""
 
-#: ../view/layout/layout.phtml:50
-msgid "All rights reserved."
+#: ../view/application/.translations/translations.phtml:5
+msgid "Edit"
 msgstr ""
 
-#: ../view/application/index/index.phtml:2
+#: ../view/application/.translations/translations.phtml:6
+msgid "Delete"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:7
+msgid "Submit"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:8
+msgid "Cancel"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:10
+msgid "Address"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:11
+msgid "Postcode"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:12
+msgid "City"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:13
+msgid "Place"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:14
+msgid "Country"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:15
+msgid "Choose country"
+msgstr ""
+
+#: ../view/application/index/docs.phtml:22 ../view/layout/layout.phtml:77
+msgid "Documentation"
+msgstr ""
+
+#: ../view/application/index/docs.phtml:45
+msgid "ERD Diagram made with DB Designer"
+msgstr ""
+
+#: ../view/application/index/zf2.phtml:2
 #, php-format
 msgid "Welcome to %sZend Framework 2%s"
 msgstr ""
 
-#: ../view/application/index/index.phtml:3
+#: ../view/application/index/zf2.phtml:3
 #, php-format
 msgid ""
 "Congratulations! You have successfully installed the %sZF2 Skeleton "
@@ -41,15 +81,15 @@ msgid ""
 "application on ZF2."
 msgstr ""
 
-#: ../view/application/index/index.phtml:4
+#: ../view/application/index/zf2.phtml:4
 msgid "Fork Zend Framework 2 on GitHub"
 msgstr ""
 
-#: ../view/application/index/index.phtml:10
+#: ../view/application/index/zf2.phtml:10
 msgid "Follow Development"
 msgstr ""
 
-#: ../view/application/index/index.phtml:11
+#: ../view/application/index/zf2.phtml:11
 #, php-format
 msgid ""
 "Zend Framework 2 is under active development. If you are interested in "
@@ -59,15 +99,15 @@ msgid ""
 "staying up to date with the latest developments!"
 msgstr ""
 
-#: ../view/application/index/index.phtml:12
+#: ../view/application/index/zf2.phtml:12
 msgid "ZF2 Development Portal"
 msgstr ""
 
-#: ../view/application/index/index.phtml:16
+#: ../view/application/index/zf2.phtml:16
 msgid "Discover Modules"
 msgstr ""
 
-#: ../view/application/index/index.phtml:17
+#: ../view/application/index/zf2.phtml:17
 #, php-format
 msgid ""
 "The community is working on developing a community site to serve as a "
@@ -76,15 +116,15 @@ msgid ""
 "modules already available for ZF2."
 msgstr ""
 
-#: ../view/application/index/index.phtml:18
+#: ../view/application/index/zf2.phtml:18
 msgid "Explore ZF2 Modules"
 msgstr ""
 
-#: ../view/application/index/index.phtml:22
+#: ../view/application/index/zf2.phtml:22
 msgid "Help &amp; Support"
 msgstr ""
 
-#: ../view/application/index/index.phtml:23
+#: ../view/application/index/zf2.phtml:23
 #, php-format
 msgid ""
 "If you need any help or support while developing with ZF2, you may reach us "
@@ -93,11 +133,58 @@ msgid ""
 "subscribe and post questions to the %smailing lists%s."
 msgstr ""
 
-#: ../view/application/index/index.phtml:24
+#: ../view/application/index/zf2.phtml:24
 msgid "Ping us on IRC"
 msgstr ""
 
-#: ../view/error/index.phtml:1
+#: ../view/error/400.phtml:1
+msgid "A 400 error occurred"
+msgstr ""
+
+#: ../view/error/400.phtml:10 ../view/error/404.phtml:10
+msgid "The requested controller was unable to dispatch the request."
+msgstr ""
+
+#: ../view/error/400.phtml:13 ../view/error/404.phtml:13
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr ""
+
+#: ../view/error/400.phtml:16 ../view/error/404.phtml:16
+msgid "The requested controller was not dispatchable."
+msgstr ""
+
+#: ../view/error/400.phtml:19 ../view/error/404.phtml:19
+msgid "The requested URL could not be matched by routing."
+msgstr ""
+
+#: ../view/error/400.phtml:22 ../view/error/404.phtml:22
+msgid "We cannot determine at this time why a 404 was generated."
+msgstr ""
+
+#: ../view/error/400.phtml:34 ../view/error/404.phtml:34
+msgid "Controller"
+msgstr ""
+
+#: ../view/error/400.phtml:41 ../view/error/404.phtml:41
+#, php-format
+msgid "resolves to %s"
+msgstr ""
+
+#: ../view/error/400.phtml:51 ../view/error/404.phtml:51
+msgid "Exception"
+msgstr ""
+
+#: ../view/error/400.phtml:55 ../view/error/404.phtml:55
+#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
+msgid "Stack trace"
+msgstr ""
+
+#: ../view/error/404.phtml:1
+msgid "A 404 error occurred"
+msgstr ""
+
+#: ../view/error/index.phtml:1 ../view/error/not-supported-locale.phtml:1
 msgid "An error occurred"
 msgstr ""
 
@@ -113,11 +200,6 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ../view/error/index.phtml:19 ../view/error/index.phtml:43
-#: ../view/error/404.phtml:55
-msgid "Stack trace"
-msgstr ""
-
 #: ../view/error/index.phtml:29
 msgid "Previous exceptions"
 msgstr ""
@@ -126,40 +208,46 @@ msgstr ""
 msgid "No Exception available"
 msgstr ""
 
-#: ../view/error/404.phtml:1
-msgid "A 404 error occurred"
+#: ../view/error/not-supported-locale.phtml:2
+msgid "Given locale is not supported!"
 msgstr ""
 
-#: ../view/error/404.phtml:10
-msgid "The requested controller was unable to dispatch the request."
+#: ../view/layout/layout.phtml:11
+msgid "Skeleton Application"
+msgstr "Tutorial"
+
+#: ../view/layout/layout.phtml:49
+msgid "Home"
 msgstr ""
 
-#: ../view/error/404.phtml:13
-msgid ""
-"The requested controller could not be mapped to an existing controller class."
+#: ../view/layout/layout.phtml:51
+msgid "Products"
 msgstr ""
 
-#: ../view/error/404.phtml:16
-msgid "The requested controller was not dispatchable."
+#: ../view/layout/layout.phtml:54
+msgid "Product categories"
 msgstr ""
 
-#: ../view/error/404.phtml:19
-msgid "The requested URL could not be matched by routing."
+#: ../view/layout/layout.phtml:57
+msgid "Products list"
 msgstr ""
 
-#: ../view/error/404.phtml:22
-msgid "We cannot determine at this time why a 404 was generated."
+#: ../view/layout/layout.phtml:61
+msgid "Units"
 msgstr ""
 
-#: ../view/error/404.phtml:34
-msgid "Controller"
+#: ../view/layout/layout.phtml:65
+msgid "VAT rates"
 msgstr ""
 
-#: ../view/error/404.phtml:41
-#, php-format
-msgid "resolves to %s"
+#: ../view/layout/layout.phtml:69
+msgid "Suppliers"
 msgstr ""
 
-#: ../view/error/404.phtml:51
-msgid "Exception"
+#: ../view/layout/layout.phtml:71
+msgid "Companies"
+msgstr ""
+
+#: ../view/layout/layout.phtml:74
+msgid "Countries"
 msgstr ""

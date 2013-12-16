@@ -3,7 +3,7 @@
 $firephp = \FirePHP::getInstance();
 $firephp->info(__FILE__);
 $firephp->info($this->locale);
-$title = 'Units list';
+$title = $this->translate('Units list', 'evl-erp');
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -45,9 +45,9 @@ $this->headTitle($title);
 
 <p><?php
 $count = count($units);
-$message = $this->translatePlural('Found %d unit.', 'Found %d units.', $count, 'evl-erp', $this->locale);
+$message = $this->translatePlural('Found %d unit.', 'Found %d units.', $count, 'evl-erp-php', $this->locale);
 echo sprintf($message, $count);
 ?></p>
 <?php else:?>
-<p><?php echo $this->translate('No unit was found.'); ?></p>
+<p><?php echo $this->translate('No unit was found.', 'evl-erp'); ?></p>
 <?php endif; ?>

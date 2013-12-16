@@ -1,7 +1,5 @@
 <?php
 // module/EvlErp/view/evl-erp/vat-rates/add.phtml:
-$firephp = \FirePHP::getInstance();
-$firephp->info($this->locale);
 
 // Le styles
 $idx = 100;
@@ -15,7 +13,7 @@ $this->bodyScript()->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/boots
     ->offsetSetFile(++$idx, $this->basePath() . '/js/module/evl-erp/vat-rates/add.js')
     ;
 
-$title = 'Add new VAT rate';
+$title = $this->translate('Add new VAT rate', 'evl-erp');
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>

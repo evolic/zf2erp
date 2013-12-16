@@ -65,9 +65,6 @@ class VatRatesController extends DefaultController
 
     public function addAction()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $locale = $this->params()->fromRoute('locale');
 
         if (!$locale) {
@@ -82,16 +79,13 @@ class VatRatesController extends DefaultController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $firephp->info('is post');
             $vatRate = new VatRate();
             $form->setInputFilter($vatRate->getInputFilter());
             $form->attachObjectExistsValidator($this->getVatRatesService()->getVatRatesRepository());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $firephp->info('is valid');
                 $values = $form->getData();
-                $firephp->info($values, '$values');
                 $vatRate->populate($values);
 
                 if ($this->getVatRatesService()->addVatRate($vatRate)) {
@@ -102,19 +96,12 @@ class VatRatesController extends DefaultController
 
                 // Redirect to list of VAT rates
                 return $this->redirect()->toRoute('erp/vat-rates', array('locale' => $locale));
-            } else {
-                $firephp->warn('not valid');
-                $values = $form->getData();
-                $firephp->info($values, '$values');
-                $firephp->error($form->getMessages(), 'error messages');
             }
         }
 
         $this->viewModel->setVariables(array(
             'form' => $form,
         ));
-
-        $firephp->groupEnd();
 
         return $this->viewModel;
     }

@@ -1,0 +1,7 @@
+form#company-form {
+    width: 480px;
+}
+
+form#company-form label span {
+    display: block;
+}

@@ -62,14 +62,10 @@ class ProductCategoryForm extends Form implements InputFilterProviderInterface
      * Attaches Object-Exists validator from DoctrineModule to not add the same product category twice
      *
      * @param ProductCategoriesRepository $repository
+     * @return ProductCategoryForm
      */
     public function attachObjectExistsValidator(ProductCategoriesRepository $repository)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
-        $firephp->info(get_class($repository));
-
         $validator = new NoObjectExistsValidator(array(
             'object_repository' => $repository,
             'fields' => array('name'),
@@ -78,12 +74,8 @@ class ProductCategoryForm extends Form implements InputFilterProviderInterface
             )
         ));
 
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators before');
-
         $this->getInputFilter()->get('name')->getValidatorChain()->attach($validator);
 
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators after');
-
-        $firephp->groupEnd();
+        return $this;
     }
 }

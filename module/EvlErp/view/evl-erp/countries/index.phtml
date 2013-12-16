@@ -2,10 +2,7 @@
 use EvlErp\Entity\Country;
 
 // module/EvlErp/view/evl-erp/countries/index.phtml:
-$firephp = \FirePHP::getInstance();
-$firephp->info(__FILE__);
-$firephp->info($this->locale);
-$title = 'Countries list';
+$title = $this->translate('Countries list', 'evl-erp');
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -13,16 +10,16 @@ $this->headTitle($title);
     <a href="<?php echo $this->url('erp/countries/actions', array(
         'locale' => $this->locale,
         'action'=>'add'
-    ));?>"><?php echo $this->translate('Add new country'); ?></a>
+    ));?>"><?php echo $this->translate('Add new country', 'evl-erp'); ?></a>
 </p>
 
 <?php if ($countries): ?>
-<table class="table countries" style="width: 640px;">
+<table class="table countries" style="width: 480px;">
 <thead>
     <tr>
         <th style="width: 30px;"><?php echo $this->translate('#'); ?></th>
         <th style="width: 40px;"><?php echo $this->translate('ID'); ?></th>
-        <th style="width: 50px;"><?php echo $this->translate('Name'); ?></th>
+        <th><?php echo $this->translate('Name'); ?></th>
         <th style="width: 80px;">&nbsp;</th>
     </tr>
 </thead>
@@ -48,9 +45,9 @@ $this->headTitle($title);
 
 <p><?php
 $count = count($countries);
-$message = $this->translatePlural('Found %d country.', 'Found %d countries.', $count, 'evl-erp', $this->locale);
+$message = $this->translatePlural('Found %d country.', 'Found %d countries.', $count, 'evl-erp-php', $this->locale);
 echo sprintf($message, $count);
 ?></p>
 <?php else:?>
-<p><?php echo $this->translate('No country was found.'); ?></p>
+<p><?php echo $this->translate('No country was found.', 'evl-erp'); ?></p>
 <?php endif; ?>

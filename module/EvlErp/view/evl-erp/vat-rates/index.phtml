@@ -1,9 +1,6 @@
 <?php
 // module/EvlErp/view/evl-erp/vat-rates/index.phtml:
-$firephp = \FirePHP::getInstance();
-$firephp->info(__FILE__);
-$firephp->info($this->locale);
-$title = 'VAT rates list';
+$title = $this->translate('VAT rates list', 'evl-erp');
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -11,11 +8,11 @@ $this->headTitle($title);
     <a href="<?php echo $this->url('erp/vat-rates/actions', array(
         'locale' => $this->locale,
         'action'=>'add'
-    ));?>"><?php echo $this->translate('Add new VAT rate'); ?></a>
+    ));?>"><?php echo $this->translate('Add new VAT rate', 'evl-erp'); ?></a>
 </p>
 
 <?php if ($vatRates): ?>
-<table class="table vat-rates" style="width: 320px;">
+<table class="table vat-rates" style="width: 250px;">
 <thead>
     <tr>
         <th style="width: 30px;"><?php echo $this->translate('#'); ?></th>
@@ -43,9 +40,9 @@ $this->headTitle($title);
 
 <p><?php
 $count = count($vatRates);
-$message = $this->translatePlural('Found %d VAT rate.', 'Found %d VAT rates.', $count, 'order', $this->locale);
+$message = $this->translatePlural('Found %d VAT rate.', 'Found %d VAT rates.', $count, 'evl-erp-php', $this->locale);
 echo sprintf($message, $count);
 ?></p>
 <?php else:?>
-<p><?php echo $this->translate('No VAT rate was found.'); ?></p>
+<p><?php echo $this->translate('No VAT rate was found.', 'evl-erp'); ?></p>
 <?php endif; ?>

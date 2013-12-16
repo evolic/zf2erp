@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EvolicErpCore\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-16 11:45+0100\n"
+"PO-Revision-Date: 2013-12-16 11:45+0100\n"
+"Last-Translator: Tomasz Kuter <evolic@interia.pl>\n"
+"Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../src/EvlErp/Controller/CompaniesController.php:96
+msgid "New company has been successfully added"
+msgstr ""
+
+#: ../src/EvlErp/Controller/CompaniesController.php:98
+msgid "Error occurred while adding new unit"
+msgstr ""
+
+#: ../src/EvlErp/Form/CompanyForm.php:42
+msgid "Submit"
+msgstr ""
+
+#: ../src/EvlErp/Form/CompanyForm.php:52
+msgid "Cancel"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:64
+#: ../view/evl-erp/companies/index.phtml:20
+#: ../view/evl-erp/countries/index.phtml:22
+#: ../view/evl-erp/product-categories/index.phtml:20
+#: ../view/evl-erp/units/index.phtml:23
+msgid "Name"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:79
+#: ../view/evl-erp/companies/index.phtml:21
+msgid "Address"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:94
+msgid "Postcode"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:109
+msgid "Place"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:120
+#: ../view/evl-erp/companies/index.phtml:22
+msgid "Country"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:124
+msgid "Choose country"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:149
+#: ../view/evl-erp/companies/index.phtml:23
+msgid "VAT Identification Number"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:165
+#: ../view/evl-erp/companies/index.phtml:26
+msgid "Enterprise Identification Number"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:181
+#: ../view/evl-erp/companies/index.phtml:29
+msgid "Business Entity Identification Number"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:286
+msgid "Please choose one of available countires"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:306
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:307
+msgid "Please enter valid VAT Identification Number"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:327
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:328
+msgid "Please enter valid Enterprise Identification Number"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:348
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:349
+msgid "Please enter valid Business Entity Identification Number"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:379
+msgid "Specified company is already present in the database"
+msgstr ""
+
+#: ../view/evl-erp/companies/add.phtml:14
+#: ../view/evl-erp/companies/index.phtml:11
+msgid "Add new company"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:3
+msgid "Companies list"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:18
+#: ../view/evl-erp/countries/index.phtml:20
+#: ../view/evl-erp/product-categories/index.phtml:18
+#: ../view/evl-erp/units/index.phtml:21
+#: ../view/evl-erp/vat-rates/index.phtml:18
+msgid "#"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:19
+#: ../view/evl-erp/countries/index.phtml:21
+#: ../view/evl-erp/product-categories/index.phtml:19
+#: ../view/evl-erp/units/index.phtml:22
+#: ../view/evl-erp/vat-rates/index.phtml:19
+msgid "ID"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:24
+msgid "VATIN"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:27
+msgid "EIN"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:30
+msgid "BEIN"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:53
+#: ../view/evl-erp/countries/index.phtml:39
+#: ../view/evl-erp/product-categories/index.phtml:34
+#: ../view/evl-erp/units/index.phtml:39
+#: ../view/evl-erp/vat-rates/index.phtml:34
+msgid "Delete"
+msgstr ""
+
+#: ../view/evl-erp/companies/index.phtml:66
+msgid "No company was found."
+msgstr ""
+
+#: ../view/evl-erp/countries/add.phtml:12
+#: ../view/evl-erp/countries/index.phtml:13
+msgid "Add new country"
+msgstr ""
+
+#: ../view/evl-erp/countries/index.phtml:5
+msgid "Countries list"
+msgstr ""
+
+#: ../view/evl-erp/countries/index.phtml:52
+msgid "No country was found."
+msgstr ""
+
+#: ../view/evl-erp/product-categories/add.phtml:10
+#: ../view/evl-erp/product-categories/index.phtml:11
+msgid "Add new product category"
+msgstr ""
+
+#: ../view/evl-erp/product-categories/index.phtml:47
+msgid "No product category was found."
+msgstr ""
+
+#: ../view/evl-erp/units/add.phtml:12 ../view/evl-erp/units/index.phtml:14
+msgid "Add new unit"
+msgstr ""
+
+#: ../view/evl-erp/units/index.phtml:24
+msgid "Description"
+msgstr ""
+
+#: ../view/evl-erp/units/index.phtml:52
+msgid "No unit was found."
+msgstr ""
+
+#: ../view/evl-erp/vat-rates/add.phtml:16
+#: ../view/evl-erp/vat-rates/index.phtml:11
+msgid "Add new VAT rate"
+msgstr ""
+
+#: ../view/evl-erp/vat-rates/index.phtml:20
+msgid "Value"
+msgstr ""
+
+#: ../view/evl-erp/vat-rates/index.phtml:47
+msgid "No VAT rate was found."
+msgstr ""

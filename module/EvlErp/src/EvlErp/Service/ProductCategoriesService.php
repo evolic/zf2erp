@@ -43,9 +43,6 @@ class ProductCategoriesService implements ProductCategoriesServiceInterface
      */
     public function addProductCategory(ProductCategory $productCategory)
     {
-      $firephp = \FirePHP::getInstance();
-      $firephp->info(__METHOD__);
-
         $this->getEntityManager()->beginTransaction();
         try {
             $this->getEntityManager()->persist($productCategory);
@@ -57,9 +54,6 @@ class ProductCategoriesService implements ProductCategoriesServiceInterface
         } catch (\Exception $e) {
             $this->getEntityManager()->rollback();
             $this->getEntityManager()->close();
-
-            $firephp->error($e->getMessage(), 'message');
-            $firephp->error($e->getTraceAsString(), 'trace');
 
             return false;
         }

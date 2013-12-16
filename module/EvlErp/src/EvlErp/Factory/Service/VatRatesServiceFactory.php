@@ -27,13 +27,8 @@ class VatRatesServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $service = new VatRatesService();
         $service->setEntityManager($serviceLocator->get('Doctrine\ORM\EntityManager'));
-
-        $firephp->groupEnd();
 
         return $service;
     }

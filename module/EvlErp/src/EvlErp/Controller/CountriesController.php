@@ -66,9 +66,6 @@ class CountriesController extends DefaultController
 
     public function addAction()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $locale = $this->params()->fromRoute('locale');
 
         if (!$locale) {
@@ -83,7 +80,6 @@ class CountriesController extends DefaultController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $firephp->info('is post');
             $country = new Country();
             $form->setInputFilter($country->getInputFilter());
             // Validator checking if specified country name is already taken
@@ -95,9 +91,7 @@ class CountriesController extends DefaultController
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $firephp->info('is valid');
                 $values = $form->getData();
-                $firephp->info($values, '$values');
                 $country->populate($values);
 
                 if ($this->getCountriesService()->addCountry($country, $locale)) {
@@ -108,11 +102,6 @@ class CountriesController extends DefaultController
 
                 // Redirect to list of countries
                 return $this->redirect()->toRoute('erp/countries', array('locale' => $locale));
-            } else {
-                $firephp->warn('not valid');
-                $values = $form->getData();
-                $firephp->info($values, '$values');
-                $firephp->error($form->getMessages(), 'error messages');
             }
         }
 

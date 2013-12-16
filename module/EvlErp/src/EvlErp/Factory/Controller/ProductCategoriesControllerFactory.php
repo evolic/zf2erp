@@ -27,16 +27,11 @@ class ProductCategoriesControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $productCategoryForm = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\ProductCategoryForm');
 
         $ctr = new ProductCategoriesController();
         $ctr->setProductCategoryForm($productCategoryForm);
         $ctr->setProductCategoriesService($serviceLocator->getServiceLocator()->get('ProductCategoriesService'));
-
-        $firephp->groupEnd();
 
         return $ctr;
     }

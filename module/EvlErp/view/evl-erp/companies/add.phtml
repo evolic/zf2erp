@@ -1,0 +1,46 @@
+<?php
+// module/EvlErp/view/evl-erp/units/add.phtml:
+namespace EvlErp;
+
+$firephp = \FirePHP::getInstance();
+$firephp->info($this->locale);
+
+// Le styles
+$idx = 100;
+$this->headLink()->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-core/form.css', 'all')
+    ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-erp/companies/add.css', 'all')
+    ;
+
+$title = $this->translate('Add new company', 'evl-erp');
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+    'erp/companies/actions',
+    array(
+        'locale' => $this->locale,
+        'action'=>'add',
+    )
+));
+$form->prepare();
+$fieldset = $this->form->get('company');
+
+echo $this->form()->openTag($form);
+echo $this->formBootstrapRow($fieldset->get('name'));
+echo $this->formBootstrapRow($fieldset->get('address'));
+echo $this->formBootstrapRow($fieldset->get('postcode'));
+echo $this->formBootstrapRow($fieldset->get('city'));
+echo $this->formBootstrapRow($fieldset->get('country'));
+echo $this->formBootstrapRow($fieldset->get('vatin'));
+echo $this->formBootstrapRow($fieldset->get('ein'));
+echo $this->formBootstrapRow($fieldset->get('bein'));
+
+echo '<div class="input-group">';
+echo $this->formSubmit($form->get('submit'));
+echo $this->formSubmit($form->get('cancel'));
+echo '</div>';
+
+echo $this->form()->closeTag();
