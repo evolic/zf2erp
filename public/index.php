@@ -5,6 +5,8 @@
  */
 chdir(dirname(__DIR__));
 
+date_default_timezone_set('Europe/Warsaw');
+
 // Setup autoloading
 include 'init_autoloader.php';
 
