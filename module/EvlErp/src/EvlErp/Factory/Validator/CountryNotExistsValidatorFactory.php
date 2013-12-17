@@ -28,9 +28,6 @@ class CountryNotExistsValidatorFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $repository = $serviceLocator->getServiceLocator()->get('CountriesService')->getCountriesRepository();
         $validator = new CountryNotExistsValidator(array(
             'object_repository' => $repository,
@@ -39,8 +36,6 @@ class CountryNotExistsValidatorFactory implements FactoryInterface
                 NoObjectExistsValidator::ERROR_OBJECT_FOUND => 'Country with specified name is already present in the database'
             )
         ));
-
-        $firephp->groupEnd();
 
         return $validator;
     }

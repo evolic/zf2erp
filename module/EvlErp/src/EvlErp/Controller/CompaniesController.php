@@ -79,15 +79,11 @@ class CompaniesController extends DefaultController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $firephp->info('is post');
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $firephp->info('is valid');
                 /* @var $company Company */
                 $company = $form->getData();
-                $firephp->info($company, '$company');
-                $firephp->info(get_class($company->getCountry()), '$country class');
 
                 // translator
                 $translator = $this->getServiceLocator()->get('translator');
@@ -102,8 +98,6 @@ class CompaniesController extends DefaultController
                 return $this->redirect()->toRoute('erp/companies', array('locale' => $locale));
             } else {
                 $firephp->warn('not valid');
-                $values = $form->getData();
-                $firephp->info($values, '$values');
                 $firephp->error($form->getMessages(), 'error messages');
             }
         }

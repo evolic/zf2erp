@@ -27,16 +27,11 @@ class UnitsControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $unitForm = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\UnitForm');
 
         $ctr = new UnitsController();
         $ctr->setUnitForm($unitForm);
         $ctr->setUnitsService($serviceLocator->getServiceLocator()->get('UnitsService'));
-
-        $firephp->groupEnd();
 
         return $ctr;
     }

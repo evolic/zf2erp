@@ -164,28 +164,18 @@ class Product
      * */
     public function assignUniqueProductCodeOnPrePersist()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         if ($this->code === null) {
             // generate unique code
             $idx = 0;
             do {
                 ++$idx;
-                $firephp->info(sprintf('generating unique code (%d)', $idx));
                 $code = substr(md5($this->name . microtime().rand()), 0, 8);
-                $firephp->info($code, '$code');
                 $criteria = array('code' => $code);
             }
             while ($this->getProductsService()->getProductsRepository()->findBy($criteria));
 
-            $firephp->info($code, '$code is unique');
             $this->code = $code;
-        } else {
-            $firephp->info('nothing to do');
         }
-
-        $firephp->groupEnd();
     }
 
     /**
@@ -196,14 +186,8 @@ class Product
      * */
     public function calculateBruttoPriceOnPrePersist()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $vatRate = $this->getVatRate()->getValue();
         $this->price_brutto = round($this->price_netto * (100 + $vatRate) / 100, 2);
-        $firephp->info($this->price_brutto, '$this->price_brutto');
-
-        $firephp->groupEnd();
     }
 
     /**
@@ -400,8 +384,8 @@ class Product
     {
         foreach ($suppliers as $supplier) {
             /* @var $supplier Company */
-            $supplier->getProducts()->add(null);
-            $this->getSuppliers()->remove($supplier);
+            $supplier->getProducts()->removeElement($this);
+            $this->getSuppliers()->removeElement($supplier);
         }
     }
 

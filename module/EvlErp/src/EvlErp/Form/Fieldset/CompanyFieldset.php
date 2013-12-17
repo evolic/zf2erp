@@ -35,16 +35,10 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
      */
     public function init()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-
         parent::__construct('company');
 
         // You will get the application wide service manager
         $sm = $this->getFormFactory()->getFormElementManager()->getServiceLocator();
-        $firephp->info(is_object($sm));
-        $firephp->info(get_class($sm));
-//         $firephp->info(get_class($sm->get('Doctrine\ORM\EntityManager')));
 
         $entityManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 
@@ -363,15 +357,10 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
      */
     private function getUniqueNameValidator()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         // translator
         $translator = $this->getServiceLocator()->get('translator');
         // repository
         $repository = $this->getServiceLocator()->get('CompaniesService')->getCompaniesRepository();
-
-        $firephp->info(get_class($repository));
 
         $validator = new NoObjectExistsValidator(array(
             'object_repository' => $repository,
@@ -380,8 +369,6 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
                 NoObjectExistsValidator::ERROR_OBJECT_FOUND => $translator->translate('Specified company is already present in the database', 'EvlErp'),
             )
         ));
-
-        $firephp->groupEnd();
 
         return $validator;
     }
@@ -394,10 +381,6 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
      */
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-        $firephp->info(get_class($serviceLocator), 'get_class($serviceLocator)');
-        $firephp->info($serviceLocator, '$serviceLocator');
         $this->serviceLocator = $serviceLocator;
     }
 
@@ -408,17 +391,6 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
      */
     public function getServiceLocator()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-        $firephp->info(is_object($this->serviceLocator), '$this->serviceLocator');
-        if (is_object($this->serviceLocator)) {
-            $firephp->info(get_class($this->serviceLocator), 'get_class($this->serviceLocator)');
-            $firephp->info(is_object($this->serviceLocator->getServiceLocator()), '$this->serviceLocator->getServiceLocator()');
-            if (is_object($this->serviceLocator->getServiceLocator())) {
-                $firephp->info(get_class($this->serviceLocator->getServiceLocator()), 'get_class($this->serviceLocator->getServiceLocator())');
-            }
-        }
-
         return $this->serviceLocator->getServiceLocator();
     }
 }

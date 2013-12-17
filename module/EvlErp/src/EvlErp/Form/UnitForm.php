@@ -78,11 +78,6 @@ class UnitForm extends Form implements InputFilterProviderInterface
      */
     public function attachObjectExistsValidator(UnitsRepository $repository)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
-        $firephp->info(get_class($repository));
-
         $validator = new NoObjectExistsValidator(array(
             'object_repository' => $repository,
             'fields' => array('name'),
@@ -91,12 +86,6 @@ class UnitForm extends Form implements InputFilterProviderInterface
             )
         ));
 
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators before');
-
         $this->getInputFilter()->get('name')->getValidatorChain()->attach($validator);
-
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators after');
-
-        $firephp->groupEnd();
     }
 }

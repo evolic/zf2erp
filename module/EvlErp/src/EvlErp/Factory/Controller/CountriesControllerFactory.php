@@ -27,16 +27,11 @@ class CountriesControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $countryForm = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\CountryForm');
 
         $ctr = new CountriesController();
         $ctr->setCountryForm($countryForm);
         $ctr->setCountriesService($serviceLocator->getServiceLocator()->get('CountriesService'));
-
-        $firephp->groupEnd();
 
         return $ctr;
     }

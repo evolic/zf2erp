@@ -85,17 +85,6 @@ class CompanyForm extends Form implements ServiceLocatorAwareInterface
      */
     public function getServiceLocator()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-        $firephp->info(is_object($this->serviceLocator), '$this->serviceLocator');
-        if (is_object($this->serviceLocator)) {
-            $firephp->info(get_class($this->serviceLocator), 'get_class($this->serviceLocator)');
-            $firephp->info(is_object($this->serviceLocator->getServiceLocator()), '$this->serviceLocator->getServiceLocator()');
-            if (is_object($this->serviceLocator->getServiceLocator())) {
-                $firephp->info(get_class($this->serviceLocator->getServiceLocator()), 'get_class($this->serviceLocator->getServiceLocator())');
-            }
-        }
-
         return $this->serviceLocator->getServiceLocator();
     }
 }

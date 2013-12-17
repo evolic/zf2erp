@@ -65,15 +65,6 @@ class CountryForm extends Form implements InputFilterProviderInterface
      */
     public function attachObjectExistsValidator(CountryNotExistsValidator $validator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators before');
-
         $this->getInputFilter()->get('name')->getValidatorChain()->attach($validator);
-
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators after');
-
-        $firephp->groupEnd();
     }
 }

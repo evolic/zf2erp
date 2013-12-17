@@ -34,16 +34,9 @@ class CountryNotExists extends NoObjectExists
      */
     public function isValid($value)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-        $firephp->info($value, '$value');
-        $firephp->info( $this->getLocale(), 'locale');
-
         $match = $this->objectRepository->findCountry($value, $this->getLocale());
 
         if (is_object($match)) {
-            $firephp->info('object found');
-            $firephp->info(get_class($match), 'get_class($match)');
             $this->error(self::ERROR_OBJECT_FOUND, $value);
 
             return false;

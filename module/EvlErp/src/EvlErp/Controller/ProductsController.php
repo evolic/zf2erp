@@ -159,10 +159,6 @@ class ProductsController extends DefaultController
      */
     private function _createProductsArray($products, $locale)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-        \ChromePhp::log(__METHOD__);
-
         // translator
         $translator = $this->getServiceLocator()->get('translator');
 
@@ -213,7 +209,6 @@ class ProductsController extends DefaultController
     {
         $firephp = \FirePHP::getInstance();
         $firephp->group(__METHOD__);
-        \ChromePhp::log(__METHOD__);
 
         $locale = $this->params()->fromRoute('locale');
 
@@ -227,19 +222,11 @@ class ProductsController extends DefaultController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $firephp->log('is post');
-            \ChromePhp::log('is post');
-
-//             $form->attachObjectExistsValidator($this->getProductsService()->getProductsRepository());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $firephp->info('is valid');
-                \ChromePhp::log('is valid');
                 $product = $form->getData();
                 /* @var $product Product */
-//                 $firephp->info($product, '$product');
-                \ChromePhp::log($product);
 
                 // assign services to Product Entity
                 $product->setProductsService($this->getServiceLocator()->get('ProductsService'));
@@ -251,11 +238,9 @@ class ProductsController extends DefaultController
                 }
 
                 // Redirect to list of products
-//                 return $this->redirect()->toRoute('erp/products', array('locale' => $locale));
+                return $this->redirect()->toRoute('erp/products', array('locale' => $locale));
             } else {
                 $firephp->warn('not valid');
-                $values = $form->getData();
-                $firephp->info($values, '$values');
                 $firephp->error($form->getMessages(), 'error messages');
             }
         }
@@ -301,19 +286,11 @@ class ProductsController extends DefaultController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $firephp->info('is post');
-            \ChromePhp::log('is post');
-
-//             $form->attachObjectExistsValidator($this->getProductsService()->getProductsRepository());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $firephp->info('is valid');
-                \ChromePhp::log('is valid');
                 $product = $form->getData();
                 /* @var $product Product */
-//                 $firephp->info($product, '$product');
-                \ChromePhp::log($product);
 
                 // assign services to Product Entity
                 $product->setProductsService($this->getServiceLocator()->get('ProductsService'));
@@ -327,9 +304,7 @@ class ProductsController extends DefaultController
                 // Redirect to list of products
                 return $this->redirect()->toRoute('erp/products', array('locale' => $locale));
             } else {
-                $firephp->warn('not valid');
                 $values = $form->getData();
-                $firephp->info($values, '$values');
                 $firephp->error($form->getMessages(), 'error messages');
             }
         }

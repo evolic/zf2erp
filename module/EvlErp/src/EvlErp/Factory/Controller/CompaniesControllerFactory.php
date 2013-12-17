@@ -27,16 +27,11 @@ class CompaniesControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $form = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\CompanyForm');
 
         $ctr = new CompaniesController();
         $ctr->setCompanyForm($form);
         $ctr->setCompaniesService($serviceLocator->getServiceLocator()->get('CompaniesService'));
-
-        $firephp->groupEnd();
 
         return $ctr;
     }

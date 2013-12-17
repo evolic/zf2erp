@@ -1,9 +1,6 @@
 <?php echo $this->doctype(); ?>
 <?php
 // module/Application/view/layout/layout.phtml:
-$firephp = \FirePHP::getInstance(true);
-$firephp->info($this->locale);
-$firephp->info($locale);
 ?>
 <html lang="en">
 <head>
@@ -29,7 +26,7 @@ $firephp->info($locale);
 //   echo $this->headScript()->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
   ?>
 </head>
-<body class="<?php echo $this->locale; ?>
+<body class="<?php echo $this->locale; ?>">
   <div class="ct">
     <div id="top-nav" class="col-md-12" role="main">
       <nav class="navbar navbar-default" role="navigation">

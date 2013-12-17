@@ -65,11 +65,11 @@ class ProductsService implements ProductsServiceInterface
                 $this->getEntityManager()->persist($product);
             }
 
-            $firephp->info($product, '$product');
-
             // commit transaction
             $this->getEntityManager()->flush();
             $this->getEntityManager()->commit();
+
+            $firephp->info('ok');
 
             $firephp->groupEnd();
 
@@ -94,9 +94,6 @@ class ProductsService implements ProductsServiceInterface
      */
     public function addProduct(Product $product)
     {
-      $firephp = \FirePHP::getInstance();
-      $firephp->info(__METHOD__);
-
         return $this->_saveProduct($product, self::MODE_INSERT);
     }
 
@@ -108,9 +105,6 @@ class ProductsService implements ProductsServiceInterface
      */
     public function updateProduct(Product $product)
     {
-      $firephp = \FirePHP::getInstance();
-      $firephp->info(__METHOD__);
-
         return $this->_saveProduct($product, self::MODE_UPDATE);
     }
 

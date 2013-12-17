@@ -47,15 +47,10 @@ class ProductFieldset extends Fieldset implements InputFilterProviderInterface, 
      */
     public function init()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-
         parent::__construct('product');
 
         // You will get the application wide service manager
         $sm = $this->getFormFactory()->getFormElementManager()->getServiceLocator();
-        $firephp->info(is_object($sm));
-        $firephp->info(get_class($sm));
 
         $entityManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 
@@ -311,15 +306,10 @@ class ProductFieldset extends Fieldset implements InputFilterProviderInterface, 
      */
     private function getUniqueNameValidator()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         // translator
         $translator = $this->getServiceLocator()->get('translator');
         // repository
         $repository = $this->getServiceLocator()->get('ProductsService')->getProductsRepository();
-
-        $firephp->info(get_class($repository));
 
         $validator = new NoObjectExistsValidator(array(
             'object_repository' => $repository,
@@ -328,8 +318,6 @@ class ProductFieldset extends Fieldset implements InputFilterProviderInterface, 
                 NoObjectExistsValidator::ERROR_OBJECT_FOUND => $translator->translate('There is already product with specified name in the database', 'EvlErp'),
             )
         ));
-
-        $firephp->groupEnd();
 
         return $validator;
     }
@@ -343,9 +331,6 @@ class ProductFieldset extends Fieldset implements InputFilterProviderInterface, 
      */
     public function setMode($mode)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         switch ($mode) {
             case ProductForm::MODE_ADD:
             case ProductForm::MODE_EDIT:

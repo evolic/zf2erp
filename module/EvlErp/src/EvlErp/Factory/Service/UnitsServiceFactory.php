@@ -27,13 +27,8 @@ class UnitsServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $service = new UnitsService();
         $service->setEntityManager($serviceLocator->get('Doctrine\ORM\EntityManager'));
-
-        $firephp->groupEnd();
 
         return $service;
     }

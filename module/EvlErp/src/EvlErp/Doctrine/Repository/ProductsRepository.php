@@ -29,17 +29,10 @@ class ProductsRepository extends EntityRepository
      */
     public function getProducts($criteria, $hydrate = Query::HYDRATE_OBJECT)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-        $firephp->info($criteria, '$criteria');
-
         $qb = $this->_em->createQueryBuilder();
         $qb->select('p, c')
             ->from('EvlErp\Entity\Product', 'p')
             ->join('p.category', 'c')
-//             ->join('p.unit', 'u')
-//             ->join('p.vatRate', 'cr')
-//             ->join('p.suppliers', 's')
         ;
 
         if (isset($criteria['keyword']) && $criteria['keyword']) {
@@ -67,11 +60,6 @@ class ProductsRepository extends EntityRepository
         if (isset($criteria['limit']) && $criteria['limit']) {
             $qb->setMaxResults($criteria['limit']);
         }
-
-        $firephp->info($qb->getDQL(), 'DQL');
-        $firephp->info($qb->getQuery()->getSQL(), 'SQL');
-
-        $firephp->groupEnd();
 
         return $qb->getQuery()->getResult($hydrate);
     }

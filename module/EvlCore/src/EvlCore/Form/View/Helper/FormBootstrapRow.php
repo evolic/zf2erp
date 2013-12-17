@@ -53,13 +53,9 @@ class FormBootstrapRow extends FormRow
      */
     public function render(ElementInterface $element)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $inputErrorClass = $this->getInputErrorClass();
 
         $labelAttributes = $element->getLabelAttributes();
-        $firephp->info($labelAttributes, '$labelAttributes');
         if (is_array($labelAttributes) && $labelAttributes && array_key_exists('class', $labelAttributes)) {
             $labelAttributes['class'] .= ' ' . $this->labelClass;
         } else if (is_array($labelAttributes) && $labelAttributes) {
@@ -70,7 +66,6 @@ class FormBootstrapRow extends FormRow
             );
         }
         $element->setLabelAttributes($labelAttributes);
-        $firephp->info($labelAttributes, '$labelAttributes');
 
         $markup = parent::render($element);
 
@@ -86,10 +81,6 @@ class FormBootstrapRow extends FormRow
         $containerClosingTag = '</div>';
 
         $container = $containerOpeningTag . $markup . $containerClosingTag;
-
-        $firephp->info($container, '$container');
-
-        $firephp->groupEnd();
 
         return $container;
     }

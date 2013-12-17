@@ -31,9 +31,6 @@ class CountriesRepository extends EntityRepository
      */
     public function getCountries($criteria, $locale, $hydrate = Query::HYDRATE_OBJECT)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $qb = $this->_em->createQueryBuilder();
         $qb->select('c')
             ->from('EvlErp\Entity\country', 'c')
@@ -52,11 +49,7 @@ class CountriesRepository extends EntityRepository
             $qb->setMaxResults($criteria['limit']);
         }
 
-        $firephp->info($qb->getDQL(), 'DQL');
-
         $query = $qb->getQuery();
-
-        $firephp->info($query->getSQL(), 'SQL');
 
         // set the translation query hint
         $query->setHint(
@@ -68,14 +61,8 @@ class CountriesRepository extends EntityRepository
             TranslatableListener::HINT_TRANSLATABLE_LOCALE,
             $locale // take locale from session or request etc.
         );
-        // fallback
-//         $query->setHint(
-//             \Gedmo\Translatable\TranslatableListener::HINT_FALLBACK,
-//             1 // fallback to default values in case if record is not translated
-//         );
+        // fallback to default values in case if record is not translated (is set true)
         $query->setHint(TranslatableListener::HINT_FALLBACK, false);
-
-        $firephp->groupEnd();
 
         return $query->getResult($hydrate);
     }
@@ -90,9 +77,6 @@ class CountriesRepository extends EntityRepository
      */
     public function findCountry($name, $locale, $hydrate = Query::HYDRATE_OBJECT)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $qb = $this->_em->createQueryBuilder();
         $qb->select('c')
             ->from('EvlErp\Entity\country', 'c')
@@ -100,10 +84,7 @@ class CountriesRepository extends EntityRepository
             ->setParameter('name', $name)
         ;
 
-        $firephp->info($qb->getDQL(), 'DQL');
-
         $query = $qb->getQuery();
-        $firephp->info($query->getSQL(), 'SQL');
 
         // set the translation query hint
         $query->setHint(
@@ -120,8 +101,6 @@ class CountriesRepository extends EntityRepository
 
         // query can return no result if country name is not taken
         $result = $query->getResult($hydrate);
-
-        $firephp->groupEnd();
 
         return array_shift($result);
     }

@@ -95,11 +95,6 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
      */
     public function attachObjectExistsValidator(ProductsRepository $repository)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
-        $firephp->info(get_class($repository));
-
         $validator = new NoObjectExistsValidator(array(
             'object_repository' => $repository,
             'fields' => array(
@@ -110,13 +105,7 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
             )
         ));
 
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators before');
-
         $this->getInputFilter()->get('name')->getValidatorChain()->attach($validator);
-
-        $firephp->info($this->getInputFilter()->get('name')->getValidatorChain()->getValidators(), 'validators after');
-
-        $firephp->groupEnd();
     }
 
     /**
@@ -127,9 +116,6 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
      */
     public function setMode($mode)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         switch ($mode) {
             case self::MODE_ADD:
             case self::MODE_EDIT:
@@ -170,15 +156,6 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
      */
     private function _setEditMode()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
-        $firephp->info(is_resource($this->getInputFilter()->get('product')->get('name')), 'is_resource');
-        $firephp->info(is_object($this->getInputFilter()->get('product')->get('name')), 'is_object');
-        $firephp->info(get_class($this->getInputFilter()->get('product')->get('name')), 'get_class');
-        \ChromePhp::log($this->getInputFilter()->get('product')->get('name'));
-        \ChromePhp::log($this->getInputFilter()->get('product')->get('name')->getValidatorChain()->getValidators());
-
         // create new validator chain
         $newValidatorChain = new ValidatorChain;
 
@@ -190,8 +167,6 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
         }
         // replace the old validator chain on the element
         $this->getInputFilter()->get('product')->get('name')->setValidatorChain($newValidatorChain);
-
-        $firephp->groupEnd();
     }
 
 
@@ -212,17 +187,6 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
      */
     public function getServiceLocator()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-        $firephp->info(is_object($this->serviceLocator), '$this->serviceLocator');
-        if (is_object($this->serviceLocator)) {
-            $firephp->info(get_class($this->serviceLocator), 'get_class($this->serviceLocator)');
-            $firephp->info(is_object($this->serviceLocator->getServiceLocator()), '$this->serviceLocator->getServiceLocator()');
-            if (is_object($this->serviceLocator->getServiceLocator())) {
-                $firephp->info(get_class($this->serviceLocator->getServiceLocator()), 'get_class($this->serviceLocator->getServiceLocator())');
-            }
-        }
-
       return $this->serviceLocator->getServiceLocator();
     }
 }

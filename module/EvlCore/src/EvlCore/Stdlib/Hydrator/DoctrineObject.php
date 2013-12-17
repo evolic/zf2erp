@@ -56,8 +56,6 @@ class DoctrineObject extends DoctrineObjectHydrator
      */
     protected function extractByValue($object)
     {
-        \ChromePhp::log(__METHOD__);
-
         $fieldNames = array_merge($this->metadata->getFieldNames(), $this->metadata->getAssociationNames());
         $methods    = get_class_methods($object);
         $filter     = $object instanceof FilterProviderInterface
@@ -66,7 +64,6 @@ class DoctrineObject extends DoctrineObjectHydrator
 
         $data = array();
         foreach ($fieldNames as $fieldName) {
-            \ChromePhp::log('processing: ' . $fieldName);
             if ($filter && !$filter->filter($fieldName)) {
                 continue;
             }
@@ -80,13 +77,8 @@ class DoctrineObject extends DoctrineObjectHydrator
                 $isser  = 'is' . ucfirst($fieldName);
             }
 
-            \ChromePhp::log($getter);
-            \ChromePhp::log(in_array($getter, $methods));
-            \ChromePhp::log($isser);
-
             if (in_array($getter, $methods)) {
                 $data[$fieldName] = $this->extractValue($fieldName, $object->$getter(), $object);
-                \ChromePhp::log($data[$fieldName]);
             } elseif (in_array($isser, $methods)) {
                 $data[$fieldName] = $this->extractValue($fieldName, $object->$isser(), $object);
             }
@@ -108,9 +100,6 @@ class DoctrineObject extends DoctrineObjectHydrator
      */
     protected function hydrateByValue(array $data, $object)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-
         $tryObject = $this->tryConvertArrayToObject($data, $object);
         $metadata  = $this->metadata;
 
@@ -127,12 +116,6 @@ class DoctrineObject extends DoctrineObjectHydrator
             } else {
                 $setter = 'set' . ucfirst($field);
             }
-
-            \ChromePhp::log($setter);
-
-            $firephp->info($field, '$field');
-            $firephp->info($value, '$value');
-            $firephp->info($setter, '$setter');
 
             if ($metadata->hasAssociation($field)) {
                   $target = $metadata->getAssociationTargetClass($field);
@@ -172,8 +155,6 @@ class DoctrineObject extends DoctrineObjectHydrator
      */
     public function setFixUnderscoreGetters($fix)
     {
-        \ChromePhp::log(__METHOD__);
-        \ChromePhp::log($fix);
         $this->fixUnderscoreGetters = $fix;
         return $this;
     }
@@ -192,8 +173,6 @@ class DoctrineObject extends DoctrineObjectHydrator
      */
     public function setFixUnderscoreSetters($fix)
     {
-        \ChromePhp::log(__METHOD__);
-        \ChromePhp::log($fix);
         $this->fixUnderscoreSetters = $fix;
         return $this;
     }

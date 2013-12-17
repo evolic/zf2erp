@@ -89,9 +89,7 @@ class UnitsController extends DefaultController
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $firephp->info('is valid');
                 $values = $form->getData();
-                $firephp->info($values, '$values');
                 $unit->populate($values);
 
                 if ($this->getUnitsService()->addUnit($unit)) {
@@ -104,8 +102,6 @@ class UnitsController extends DefaultController
                 return $this->redirect()->toRoute('erp/units', array('locale' => $locale));
             } else {
                 $firephp->warn('not valid');
-                $values = $form->getData();
-                $firephp->info($values, '$values');
                 $firephp->error($form->getMessages(), 'error messages');
             }
         }
