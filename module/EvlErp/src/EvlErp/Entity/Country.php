@@ -63,7 +63,7 @@ class Country implements InputFilterAwareInterface, Translatable
      * @var Doctrine\Common\Collections\ArrayCollection $meals
      * @ORM\OneToMany(targetEntity="Company", mappedBy="country", cascade={"persist","remove"})
      */
-    protected $companies;
+    private $companies;
 
 
     public function __construct()
@@ -90,7 +90,7 @@ class Country implements InputFilterAwareInterface, Translatable
 
 
     /**
-     * Magic getter to expose protected properties.
+     * Magic getter to expose private properties.
      *
      * @param string $property
      * @return mixed
@@ -101,7 +101,7 @@ class Country implements InputFilterAwareInterface, Translatable
     }
 
     /**
-     * Magic setter to save protected properties.
+     * Magic setter to save private properties.
      *
      * @param string $property
      * @param mixed $value

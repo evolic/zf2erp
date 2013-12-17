@@ -16,7 +16,15 @@ interface CompaniesControllerInterface
     const DEFAULT_LIMIT_PER_PAGE = 20;
 
 
+    /**
+     * Lists companies
+     */
     public function indexAction();
+
+    /**
+     * Handles adding new companies
+     */
+    public function addAction();
 
 
     /**

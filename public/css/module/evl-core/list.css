@@ -1,0 +1,22 @@
+table.products {
+
+}
+
+table.table > thead > tr > th {
+  vertical-align: middle;
+}
+
+table tbody tr td.number {
+  text-align: right;
+}
+
+/** jQuery Data Tables **/
+.x-container .dataTables_processing {
+  height: 45px;
+  background-color: LightBlue;
+  color: #333;
+}
+
+.dataTables_paginate {
+  margin-top: 10px;
+}

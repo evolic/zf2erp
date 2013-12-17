@@ -24,6 +24,11 @@ return array(
         'Znaleziono %d kategorie produktów.',
         'Znaleziono %d kategorii produktów.'
     ),
+    'Found %d product.' => array(
+        'Znaleziono %d produkt.',
+        'Znaleziono %d produkty.',
+        'Znaleziono %d produktów.'
+    ),
     'Found %d unit.' => array(
         'Znaleziono %d jednostkę miary.',
         'Znaleziono %d jednostki miary.',

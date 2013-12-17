@@ -336,6 +336,10 @@
 <OPTIONSELECTED>
 </OPTIONSELECTED>
 </COLUMN>
+<COLUMN ID="1174" ColName="deleted_at" PrevColName="" Pos="11" idDatatype="15" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
+<OPTIONSELECTED>
+</OPTIONSELECTED>
+</COLUMN>
 </COLUMNS>
 <RELATIONS_START>
 <RELATION_START ID="1131" />
@@ -467,16 +471,6 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="1142" ColName="vatin" PrevColName="" Pos="3" idDatatype="20" DatatypeParams="(31)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="VAT Identification Number">
-<OPTIONSELECTED>
-<OPTIONSELECT Value="0" />
-</OPTIONSELECTED>
-</COLUMN>
-<COLUMN ID="1143" ColName="ein" PrevColName="" Pos="4" idDatatype="20" DatatypeParams="(31)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Enterprise Identification Number">
-<OPTIONSELECTED>
-<OPTIONSELECT Value="0" />
-</OPTIONSELECTED>
-</COLUMN>
 <COLUMN ID="1145" ColName="city" PrevColName="" Pos="5" idDatatype="20" DatatypeParams="(63)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
@@ -488,6 +482,21 @@
 </OPTIONSELECTED>
 </COLUMN>
 <COLUMN ID="1147" ColName="address" PrevColName="" Pos="7" idDatatype="20" DatatypeParams="(127)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1142" ColName="vatin" PrevColName="" Pos="3" idDatatype="20" DatatypeParams="(31)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="VAT Identification Number">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1143" ColName="ein" PrevColName="" Pos="4" idDatatype="20" DatatypeParams="(31)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="Enterprise Identification Number">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1172" ColName="bein" PrevColName="" Pos="8" idDatatype="20" DatatypeParams="(31)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
@@ -537,7 +546,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1125" Tablename="suppliers" PrevTableName="Table_07" XPos="440" YPos="460" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" >
+<TABLE ID="1125" Tablename="product_suppliers" PrevTableName="Table_07" XPos="420" YPos="460" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" >
 <COLUMNS>
 <COLUMN ID="1134" ColName="product_id" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -563,12 +572,12 @@
 <INDEXCOLUMN idColumn="1130" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
-<INDEX ID="1128" IndexName="suppliers_company_id_fk" IndexKind="1" FKRefDef_Obj_id="1126">
+<INDEX ID="1128" IndexName="product_suppliers_company_id_fk" IndexKind="1" FKRefDef_Obj_id="1126">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="1130" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
-<INDEX ID="1133" IndexName="suppliers_product_id_fk" IndexKind="1" FKRefDef_Obj_id="1131">
+<INDEX ID="1133" IndexName="product_suppliers_product_id_fk" IndexKind="1" FKRefDef_Obj_id="1131">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="1134" LengthParam="0" />
 </INDEXCOLUMNS>

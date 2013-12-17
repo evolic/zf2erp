@@ -16,7 +16,15 @@ interface CountriesControllerInterface
     const DEFAULT_LIMIT_PER_PAGE = 20;
 
 
+    /**
+     * Lists countries
+     */
     public function indexAction();
+
+    /**
+     * Handles adding new countries
+     */
+    public function addAction();
 
 
     /**

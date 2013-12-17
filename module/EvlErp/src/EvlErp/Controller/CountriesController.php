@@ -109,8 +109,6 @@ class CountriesController extends DefaultController
             'form' => $form,
         ));
 
-        $firephp->groupEnd();
-
         return $this->viewModel;
     }
 

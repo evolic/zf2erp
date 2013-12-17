@@ -25,6 +25,7 @@ use Zend\InputFilter\InputFilterInterface;
  * @property int $id
  * @property string $name
  * @property string $description
+ * @property ArrayCollection $products
  */
 class Unit implements InputFilterAwareInterface
 {
@@ -45,20 +46,20 @@ class Unit implements InputFilterAwareInterface
     /**
      * @ORM\Column(type="string", length=63, nullable=true)
      */
-    protected $description;
+    private $description;
 
-//     /**
-//      * Products using specified unit
-//      *
-//      * @var Doctrine\Common\Collections\ArrayCollection $products
-//      * @ORM\OneToMany(targetEntity="Product", mappedBy="unit", cascade={"persist","remove"})
-//      */
-//     protected $products;
+    /**
+     * Products using specified unit
+     *
+     * @var Doctrine\Common\Collections\ArrayCollection $products
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="unit", cascade={"persist","remove"})
+     */
+    private $products;
 
 
     public function __construct()
     {
-//         $this->products = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
 
@@ -80,7 +81,7 @@ class Unit implements InputFilterAwareInterface
 
 
     /**
-     * Magic getter to expose protected properties.
+     * Magic getter to expose private properties.
      *
      * @param string $property
      * @return mixed
@@ -91,7 +92,7 @@ class Unit implements InputFilterAwareInterface
     }
 
     /**
-     * Magic setter to save protected properties.
+     * Magic setter to save private properties.
      *
      * @param string $property
      * @param mixed $value

@@ -49,7 +49,8 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
         $entityManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 
         // Doctrine hydrator
-        $this->setHydrator(new DoctrineHydrator($entityManager, 'EvlErp\Entity\Company'))->setObject(new Company());
+        $this->setHydrator(new DoctrineHydrator($entityManager, 'EvlErp\Entity\Company'))
+            ->setObject(new Company());
         // translator
         $translator = $this->getServiceLocator()->get('translator');
 
@@ -343,7 +344,7 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min'      => 6,
-                            'max'      => 6,
+                            'max'      => 10,
                             'messages' => array(
                                 StringLengthValidator::TOO_SHORT => $translator->translate('Please enter valid Business Entity Identification Number', 'evl-erp'),
                                 StringLengthValidator::TOO_LONG => $translator->translate('Please enter valid Business Entity Identification Number', 'evl-erp'),

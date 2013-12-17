@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 11:10+0100\n"
-"PO-Revision-Date: 2013-12-16 11:12+0100\n"
+"POT-Creation-Date: 2013-12-17 13:16+0100\n"
+"PO-Revision-Date: 2013-12-17 13:17+0100\n"
 "Last-Translator: Tomasz Kuter <evolic@interia.pl>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: pl_PL\n"
@@ -18,51 +18,116 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/application/.translations/translations.phtml:3
+#: ../view/application/.translations/translations.phtml:2
+#, php-format
+msgid "Edit: %s"
+msgstr "Edycja: %s"
+
+#: ../view/application/.translations/translations.phtml:4
 msgid "Name"
 msgstr "Nazwa"
 
 #: ../view/application/.translations/translations.phtml:5
+msgid "Description"
+msgstr "Opis"
+
+#: ../view/application/.translations/translations.phtml:7
 msgid "Edit"
 msgstr "Edytuj"
 
-#: ../view/application/.translations/translations.phtml:6
+#: ../view/application/.translations/translations.phtml:8
 msgid "Delete"
 msgstr "Usuń"
 
-#: ../view/application/.translations/translations.phtml:7
+#: ../view/application/.translations/translations.phtml:9
 msgid "Submit"
 msgstr "Wyślij"
 
-#: ../view/application/.translations/translations.phtml:8
+#: ../view/application/.translations/translations.phtml:10
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: ../view/application/.translations/translations.phtml:10
+#: ../view/application/.translations/translations.phtml:12
 msgid "Address"
 msgstr "Adres"
 
-#: ../view/application/.translations/translations.phtml:11
+#: ../view/application/.translations/translations.phtml:13
 msgid "Postcode"
 msgstr "Kod pocztowy"
 
-#: ../view/application/.translations/translations.phtml:12
+#: ../view/application/.translations/translations.phtml:14
 msgid "City"
 msgstr "Miasto"
 
-#: ../view/application/.translations/translations.phtml:13
+#: ../view/application/.translations/translations.phtml:15
 msgid "Place"
 msgstr "Miejscowość"
 
-#: ../view/application/.translations/translations.phtml:14
+#: ../view/application/.translations/translations.phtml:16
 msgid "Country"
 msgstr "Kraj"
 
-#: ../view/application/.translations/translations.phtml:15
+#: ../view/application/.translations/translations.phtml:17
 msgid "Choose country"
 msgstr "Wybierz kraj"
 
-#: ../view/application/index/docs.phtml:22 ../view/layout/layout.phtml:77
+#: ../view/application/.translations/translations.phtml:19
+msgid "Category"
+msgstr "Kategoria"
+
+#: ../view/application/.translations/translations.phtml:20
+msgid "Code"
+msgstr "Kod"
+
+#: ../view/application/.translations/translations.phtml:21
+msgid "Price (netto)"
+msgstr "Cena (netto)"
+
+#: ../view/application/.translations/translations.phtml:22
+msgid "Price (brutto)"
+msgstr "Cena (brutto)"
+
+#: ../view/application/.translations/translations.phtml:24
+msgid "Created at"
+msgstr "Utworzono"
+
+#: ../view/application/.translations/translations.phtml:25
+msgid "Updated at"
+msgstr "Zmodyfikowano"
+
+#: ../view/application/.translations/translations.phtml:28
+msgid "Show _MENU_ entries"
+msgstr "Pokaż _MENU_ wyników"
+
+#: ../view/application/.translations/translations.phtml:29
+msgid "search for..."
+msgstr "szukaj..."
+
+#: ../view/application/.translations/translations.phtml:30
+msgid "loading data..."
+msgstr "ładowanie danych..."
+
+#: ../view/application/.translations/translations.phtml:31
+msgid "First"
+msgstr "Pierwsza"
+
+#: ../view/application/.translations/translations.phtml:32
+msgid "Last"
+msgstr "Ostatnia"
+
+#: ../view/application/.translations/translations.phtml:33
+msgid "Next"
+msgstr "Następna"
+
+#: ../view/application/.translations/translations.phtml:34
+msgid "Previous"
+msgstr "Poprzednia"
+
+#: ../view/application/.translations/translations.phtml:35
+msgid "No data available in table"
+msgstr "Brak dostępnych danych w tabeli"
+
+#: ../view/application/index/docs.phtml:22 ../view/layout/layout.phtml:78
 msgid "Documentation"
 msgstr "Dokumentacja"
 
@@ -239,39 +304,39 @@ msgstr "Wybrany język nie jest wspierany przez aplikację!"
 msgid "Skeleton Application"
 msgstr "Tutorial"
 
-#: ../view/layout/layout.phtml:49
+#: ../view/layout/layout.phtml:50
 msgid "Home"
 msgstr "Strona główna"
 
-#: ../view/layout/layout.phtml:51
+#: ../view/layout/layout.phtml:52
 msgid "Products"
 msgstr "Produkty"
 
-#: ../view/layout/layout.phtml:54
+#: ../view/layout/layout.phtml:55
 msgid "Product categories"
 msgstr "Kategorie produktów"
 
-#: ../view/layout/layout.phtml:57
+#: ../view/layout/layout.phtml:58
 msgid "Products list"
 msgstr "Lista produktów"
 
-#: ../view/layout/layout.phtml:61
+#: ../view/layout/layout.phtml:62
 msgid "Units"
 msgstr "Jednostki miary"
 
-#: ../view/layout/layout.phtml:65
+#: ../view/layout/layout.phtml:66
 msgid "VAT rates"
 msgstr "Stawki VAT"
 
-#: ../view/layout/layout.phtml:69
+#: ../view/layout/layout.phtml:70
 msgid "Suppliers"
 msgstr "Dostawcy"
 
-#: ../view/layout/layout.phtml:71
+#: ../view/layout/layout.phtml:72
 msgid "Companies"
 msgstr "Firmy"
 
-#: ../view/layout/layout.phtml:74
+#: ../view/layout/layout.phtml:75
 msgid "Countries"
 msgstr "Państwa"
 
@@ -314,14 +379,8 @@ msgstr "Państwa"
 #~ msgid "Are you sure that you want to delete '%s' from album '%s'?"
 #~ msgstr "Czy na pewno chesz usunąć utwór '%s' z albumu '%s'?"
 
-#~ msgid "Edit song"
-#~ msgstr "Edytuj utwór"
-
 #~ msgid "%s's songs"
 #~ msgstr "Utwory w %s"
-
-#~ msgid "Position"
-#~ msgstr "Kolejność"
 
 #~ msgid "Song"
 #~ msgstr "Utwór"

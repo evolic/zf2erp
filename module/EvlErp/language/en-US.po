@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EvolicErpCore\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 11:45+0100\n"
-"PO-Revision-Date: 2013-12-16 11:45+0100\n"
+"POT-Creation-Date: 2013-12-17 13:16+0100\n"
+"PO-Revision-Date: 2013-12-17 13:16+0100\n"
 "Last-Translator: Tomasz Kuter <evolic@interia.pl>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: en_US\n"
@@ -26,80 +26,146 @@ msgstr ""
 msgid "Error occurred while adding new unit"
 msgstr ""
 
-#: ../src/EvlErp/Form/CompanyForm.php:42
+#: ../src/EvlErp/Controller/ProductsController.php:185
+#: ../view/evl-erp/products/edit.phtml:14
+#, php-format
+msgid "Edit: %s"
+msgstr ""
+
+#: ../src/EvlErp/Form/CompanyForm.php:42 ../src/EvlErp/Form/ProductForm.php:59
 msgid "Submit"
 msgstr ""
 
-#: ../src/EvlErp/Form/CompanyForm.php:52
+#: ../src/EvlErp/Form/CompanyForm.php:52 ../src/EvlErp/Form/ProductForm.php:69
 msgid "Cancel"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:64
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:65
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:68
 #: ../view/evl-erp/companies/index.phtml:20
 #: ../view/evl-erp/countries/index.phtml:22
 #: ../view/evl-erp/product-categories/index.phtml:20
+#: ../view/evl-erp/products/index.phtml:49
 #: ../view/evl-erp/units/index.phtml:23
 msgid "Name"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:79
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:80
 #: ../view/evl-erp/companies/index.phtml:21
 msgid "Address"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:94
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:95
 msgid "Postcode"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:109
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:110
 msgid "Place"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:120
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:121
 #: ../view/evl-erp/companies/index.phtml:22
 msgid "Country"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:124
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:125
 msgid "Choose country"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:149
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:150
 #: ../view/evl-erp/companies/index.phtml:23
 msgid "VAT Identification Number"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:165
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:166
 #: ../view/evl-erp/companies/index.phtml:26
 msgid "Enterprise Identification Number"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:181
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:182
 #: ../view/evl-erp/companies/index.phtml:29
 msgid "Business Entity Identification Number"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:286
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:287
 msgid "Please choose one of available countires"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:306
 #: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:307
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:308
 msgid "Please enter valid VAT Identification Number"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:327
 #: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:328
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:329
 msgid "Please enter valid Enterprise Identification Number"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:348
 #: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:349
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:350
 msgid "Please enter valid Business Entity Identification Number"
 msgstr ""
 
-#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:379
+#: ../src/EvlErp/Form/Fieldset/CompanyFieldset.php:380
 msgid "Specified company is already present in the database"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:84
+#: ../view/evl-erp/products/index.phtml:51
+msgid "Code"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:95
+#: ../view/evl-erp/products/index.phtml:50
+msgid "Category"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:99
+msgid "Choose category"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:111
+msgid "Suppliers"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:142
+msgid "VAT rate"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:148
+msgid "Choose VAT rate"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:164
+#: ../view/evl-erp/products/index.phtml:52
+msgid "Price (netto)"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:179
+#: ../view/evl-erp/products/index.phtml:53
+msgid "Price (brutto)"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:190
+msgid "Unit"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:217
+#: ../view/evl-erp/units/index.phtml:24
+msgid "Description"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:233
+msgid "Created at"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:249
+#: ../view/evl-erp/products/index.phtml:54
+msgid "Updated at"
+msgstr ""
+
+#: ../src/EvlErp/Form/Fieldset/ProductFieldset.php:317
+msgid "There is already product with specified name in the database"
 msgstr ""
 
 #: ../view/evl-erp/companies/add.phtml:14
@@ -114,6 +180,7 @@ msgstr ""
 #: ../view/evl-erp/companies/index.phtml:18
 #: ../view/evl-erp/countries/index.phtml:20
 #: ../view/evl-erp/product-categories/index.phtml:18
+#: ../view/evl-erp/products/index.phtml:47
 #: ../view/evl-erp/units/index.phtml:21
 #: ../view/evl-erp/vat-rates/index.phtml:18
 msgid "#"
@@ -122,6 +189,7 @@ msgstr ""
 #: ../view/evl-erp/companies/index.phtml:19
 #: ../view/evl-erp/countries/index.phtml:21
 #: ../view/evl-erp/product-categories/index.phtml:19
+#: ../view/evl-erp/products/index.phtml:48
 #: ../view/evl-erp/units/index.phtml:22
 #: ../view/evl-erp/vat-rates/index.phtml:19
 msgid "ID"
@@ -142,6 +210,7 @@ msgstr ""
 #: ../view/evl-erp/companies/index.phtml:53
 #: ../view/evl-erp/countries/index.phtml:39
 #: ../view/evl-erp/product-categories/index.phtml:34
+#: ../view/evl-erp/products/index.phtml:87
 #: ../view/evl-erp/units/index.phtml:39
 #: ../view/evl-erp/vat-rates/index.phtml:34
 msgid "Delete"
@@ -169,16 +238,66 @@ msgstr ""
 msgid "Add new product category"
 msgstr ""
 
+#: ../view/evl-erp/product-categories/index.phtml:3
+msgid "Product categories list"
+msgstr ""
+
 #: ../view/evl-erp/product-categories/index.phtml:47
 msgid "No product category was found."
+msgstr ""
+
+#: ../view/evl-erp/products/add.phtml:14
+#: ../view/evl-erp/products/index.phtml:36
+msgid "Add new product"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:28
+msgid "Products list"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:96
+msgid "Show _MENU_ entries"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:97
+msgid "search for..."
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:98
+msgid "loading data..."
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:99
+msgid "First"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:100
+msgid "Last"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:101
+msgid "Next"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:102
+msgid "Previous"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:103
+#: ../view/evl-erp/products/index.phtml:104
+msgid "No data available in table"
+msgstr ""
+
+#: ../view/evl-erp/products/index.phtml:108
+msgid "No product was found."
 msgstr ""
 
 #: ../view/evl-erp/units/add.phtml:12 ../view/evl-erp/units/index.phtml:14
 msgid "Add new unit"
 msgstr ""
 
-#: ../view/evl-erp/units/index.phtml:24
-msgid "Description"
+#: ../view/evl-erp/units/index.phtml:6
+msgid "Units list"
 msgstr ""
 
 #: ../view/evl-erp/units/index.phtml:52
@@ -188,6 +307,10 @@ msgstr ""
 #: ../view/evl-erp/vat-rates/add.phtml:16
 #: ../view/evl-erp/vat-rates/index.phtml:11
 msgid "Add new VAT rate"
+msgstr ""
+
+#: ../view/evl-erp/vat-rates/index.phtml:3
+msgid "VAT rates list"
 msgstr ""
 
 #: ../view/evl-erp/vat-rates/index.phtml:20

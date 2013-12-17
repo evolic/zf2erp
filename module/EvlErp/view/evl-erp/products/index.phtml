@@ -1,0 +1,109 @@
+<?php
+// module/EvlErp/view/evl-erp/products/index.phtml:
+
+namespace EvlErp;
+
+use EvlErp\Entity\Product;
+
+$firephp = \FirePHP::getInstance();
+$firephp->info(__FILE__);
+$firephp->info($this->locale);
+
+// Le styles
+$idx = 100;
+$this->headLink()
+    ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-core/list.css', 'all')
+    ->offsetSetStylesheet(++$idx, $this->basePath() . '/js/vendor/jquery/data-tables/1.9.4/css/jquery.dataTables.css')
+    ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-core/list.css')
+    ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-erp/products/list.css')
+;
+
+// footer scripts
+$idx = 100;
+$this->bodyScript()
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/data-tables/1.9.4/js/jquery.dataTables.js')
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/module/evl-erp/products/list.js')
+;
+
+$title = $this->translate('Products list', 'evl-erp');
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('erp/products/actions', array(
+        'locale' => $this->locale,
+        'action'=>'add'
+    ));?>"><?php echo $this->translate('Add new product', 'evl-erp'); ?></a>
+</p>
+
+<?php
+$listIterator = $this->paginator->getItemsByPage($this->paginator->getCurrentPageNumber());
+$count = $listIterator->count();
+?>
+<?php if ($count): ?>
+<table class="table products">
+<thead>
+    <tr>
+        <th style="width: 30px;"><?php echo $this->translate('#'); ?></th>
+        <th style="width: 40px;"><?php echo $this->translate('ID'); ?></th>
+        <th><?php echo $this->translate('Name'); ?></th>
+        <th style="width: 160px;"><?php echo $this->translate('Category'); ?></th>
+        <th style="width: 60px;"><?php echo $this->translate('Code'); ?></th>
+        <th style="width: 120px;"><?php echo $this->translate('Price (netto)'); ?></th>
+        <th style="width: 120px;"><?php echo $this->translate('Price (brutto)'); ?></th>
+        <th style="width: 120px;"><?php echo $this->translate('Updated at'); ?></th>
+        <th style="width: 80px;">&nbsp;</th>
+    </tr>
+</thead>
+<tbody>
+    <?php $idx = 0; ?>
+    <?php foreach ($listIterator as $product) : ?>
+    <?php /* @var $product Product */?>
+    <tr>
+        <td><?php echo ++$idx; ?></td>
+        <td><?php echo $product['id']; ?></td>
+        <td>
+          <strong><?php echo $this->escapeHtml($product['name']);?></strong>
+          <!--
+          <br />
+           -->
+          <?php
+          /*
+          $description = $this->escapeHtml($product['description']);
+          $firstDot = mb_strpos($description, '.', 0, 'utf-8');
+          $secondDot = mb_strpos($description, '.', $firstDot + 1, 'utf-8');
+          echo mb_substr($description, 0, $secondDot, 'utf-8') . '...';
+          */
+          ?>
+        </td>
+        <td><?php echo $product['category']['name']; ?></td>
+        <td><?php echo $product['code']; ?></td>
+        <td class="number"><?php echo number_format ($product['price_netto'], 2, '.', ' '); ?> PLN</td>
+        <td class="number"><?php echo number_format ($product['price_brutto'], 2, '.', ' '); ?> PLN</td>
+        <td><?php echo $product['updated_at']->format('Y-m-d H:i'); ?></td>
+        <td>
+            <a href="<?php echo $this->url('erp/products/actions',
+                array('locale' => $this->locale, 'action'=>'delete', 'id' => $product['id'])
+            );?>"><?php echo $this->translate('Delete'); ?></a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
+
+<?php $this->inlineScript()->captureStart(); ?>
+var sProductsListAjaxSource = "<?php echo $this->url('erp/products/ajax-listing', array('locale' => $this->locale)); ?>";
+var sLengthMenu = "<?php echo $this->translate('Show _MENU_ entries'); ?>";
+var sSearchFor = "<?php echo $this->translate('search for...'); ?>";
+var sProcessing = "<?php echo $this->translate('loading data...'); ?>";
+var sFirst = "<?php echo $this->translate('First'); ?>";
+var sLast = "<?php echo $this->translate('Last'); ?>";
+var sNext = "<?php echo $this->translate('Next'); ?>";
+var sPrevious = "<?php echo $this->translate('Previous'); ?>";
+var sInfoEmpty = "<?php echo $this->translate('No data available in table'); ?>";
+var sZeroRecords = "<?php echo $this->translate('No data available in table'); ?>";
+<?php $this->inlineScript()->captureEnd(); ?>
+
+<?php else:?>
+<p><?php echo $this->translate('No product was found.', 'evl-erp'); ?></p>
+<?php endif; ?>

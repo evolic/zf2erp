@@ -12,6 +12,7 @@ return array(
             'CompaniesService' => 'EvlErp\Factory\Service\CompaniesServiceFactory',
             'CountriesService' => 'EvlErp\Factory\Service\CountriesServiceFactory',
             'ProductCategoriesService' => 'EvlErp\Factory\Service\ProductCategoriesServiceFactory',
+            'ProductsService' => 'EvlErp\Factory\Service\ProductsServiceFactory',
             'UnitsService' => 'EvlErp\Factory\Service\UnitsServiceFactory',
             'VatRatesService' => 'EvlErp\Factory\Service\VatRatesServiceFactory',
         )
@@ -21,6 +22,7 @@ return array(
             'evl-erp/companies' => 'EvlErp\Factory\Controller\CompaniesControllerFactory',
             'evl-erp/countries' => 'EvlErp\Factory\Controller\CountriesControllerFactory',
             'evl-erp/product-categories' => 'EvlErp\Factory\Controller\ProductCategoriesControllerFactory',
+            'evl-erp/products' => 'EvlErp\Factory\Controller\ProductsControllerFactory',
             'evl-erp/units' => 'EvlErp\Factory\Controller\UnitsControllerFactory',
             'evl-erp/vat-rates' => 'EvlErp\Factory\Controller\VatRatesControllerFactory',
 //             'evl-erp/products' => 'EvlErp\Factory\Controller\ProductsControllerFactory',
@@ -120,6 +122,40 @@ return array(
                                     ),
                                 ),
                                 'may_terminate' => true,
+                            ),
+                        ),
+                        'may_terminate' => true,
+                    ),
+                    'products' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/products',
+                            'defaults' => array(
+                                'controller' => 'evl-erp/products',
+                            ),
+                        ),
+                        'child_routes' => array(
+                            'actions' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/:action[/:id][,[:page],[:order_by]].html',
+                                    'constraints' => array(
+                                        'action'   => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'       => '[0-9]+',
+                                        'page'     => '[0-9]+',
+                                        'order_by' => '[a-z][a-z_]*',
+                                    ),
+                                ),
+                                'may_terminate' => true,
+                            ),
+                            'ajax-listing' => array(
+                                'type' => 'literal',
+                                'options' => array(
+                                    'route' => '/ajax-listing',
+                                    'defaults' => array(
+                                        'action' => 'ajax-listing',
+                                    ),
+                                ),
                             ),
                         ),
                         'may_terminate' => true,

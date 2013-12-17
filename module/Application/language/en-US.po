@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 11:10+0100\n"
-"PO-Revision-Date: 2013-12-16 11:10+0100\n"
+"POT-Creation-Date: 2013-12-17 13:16+0100\n"
+"PO-Revision-Date: 2013-12-17 13:16+0100\n"
 "Last-Translator: Tomasz Kuter <evolic@interia.pl>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: en_US\n"
@@ -15,51 +15,116 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../view/application/.translations/translations.phtml:3
+#: ../view/application/.translations/translations.phtml:2
+#, php-format
+msgid "Edit: %s"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:4
 msgid "Name"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:5
-msgid "Edit"
-msgstr ""
-
-#: ../view/application/.translations/translations.phtml:6
-msgid "Delete"
+msgid "Description"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:7
-msgid "Submit"
+msgid "Edit"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:8
-msgid "Cancel"
+msgid "Delete"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:9
+msgid "Submit"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:10
-msgid "Address"
-msgstr ""
-
-#: ../view/application/.translations/translations.phtml:11
-msgid "Postcode"
+msgid "Cancel"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:12
-msgid "City"
+msgid "Address"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:13
-msgid "Place"
+msgid "Postcode"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:14
-msgid "Country"
+msgid "City"
 msgstr ""
 
 #: ../view/application/.translations/translations.phtml:15
+msgid "Place"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:16
+msgid "Country"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:17
 msgid "Choose country"
 msgstr ""
 
-#: ../view/application/index/docs.phtml:22 ../view/layout/layout.phtml:77
+#: ../view/application/.translations/translations.phtml:19
+msgid "Category"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:20
+msgid "Code"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:21
+msgid "Price (netto)"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:22
+msgid "Price (brutto)"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:24
+msgid "Created at"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:25
+msgid "Updated at"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:28
+msgid "Show _MENU_ entries"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:29
+msgid "search for..."
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:30
+msgid "loading data..."
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:31
+msgid "First"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:32
+msgid "Last"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:33
+msgid "Next"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:34
+msgid "Previous"
+msgstr ""
+
+#: ../view/application/.translations/translations.phtml:35
+msgid "No data available in table"
+msgstr ""
+
+#: ../view/application/index/docs.phtml:22 ../view/layout/layout.phtml:78
 msgid "Documentation"
 msgstr ""
 
@@ -216,38 +281,38 @@ msgstr ""
 msgid "Skeleton Application"
 msgstr "Tutorial"
 
-#: ../view/layout/layout.phtml:49
+#: ../view/layout/layout.phtml:50
 msgid "Home"
 msgstr ""
 
-#: ../view/layout/layout.phtml:51
+#: ../view/layout/layout.phtml:52
 msgid "Products"
 msgstr ""
 
-#: ../view/layout/layout.phtml:54
+#: ../view/layout/layout.phtml:55
 msgid "Product categories"
 msgstr ""
 
-#: ../view/layout/layout.phtml:57
+#: ../view/layout/layout.phtml:58
 msgid "Products list"
 msgstr ""
 
-#: ../view/layout/layout.phtml:61
+#: ../view/layout/layout.phtml:62
 msgid "Units"
 msgstr ""
 
-#: ../view/layout/layout.phtml:65
+#: ../view/layout/layout.phtml:66
 msgid "VAT rates"
 msgstr ""
 
-#: ../view/layout/layout.phtml:69
+#: ../view/layout/layout.phtml:70
 msgid "Suppliers"
 msgstr ""
 
-#: ../view/layout/layout.phtml:71
+#: ../view/layout/layout.phtml:72
 msgid "Companies"
 msgstr ""
 
-#: ../view/layout/layout.phtml:74
+#: ../view/layout/layout.phtml:75
 msgid "Countries"
 msgstr ""

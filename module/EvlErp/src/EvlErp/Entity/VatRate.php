@@ -27,6 +27,7 @@ use Zend\Validator\Between as BetweenValidator;
  * @ORM\Table(name="vat_rates")
  * @property int $id
  * @property float $value
+ * @property ArrayCollection $products
  */
 class VatRate implements InputFilterAwareInterface
 {
@@ -44,18 +45,18 @@ class VatRate implements InputFilterAwareInterface
      */
     private $value;
 
-//     /**
-//      * Products using specified VAT rate
-//      *
-//      * @var Doctrine\Common\Collections\ArrayCollection $products
-//      * @ORM\OneToMany(targetEntity="Product", mappedBy="vat_rate", cascade={"persist","remove"})
-//      */
-//     protected $products;
+    /**
+     * Products using specified VAT rate
+     *
+     * @var Doctrine\Common\Collections\ArrayCollection $products
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="vat_rate", cascade={"persist","remove"})
+     */
+    private $products;
 
 
     public function __construct()
     {
-//         $this->products = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
 
@@ -69,7 +70,7 @@ class VatRate implements InputFilterAwareInterface
 
 
     /**
-     * Magic getter to expose protected properties.
+     * Magic getter to expose private properties.
      *
      * @param string $property
      * @return mixed
@@ -80,7 +81,7 @@ class VatRate implements InputFilterAwareInterface
     }
 
     /**
-     * Magic setter to save protected properties.
+     * Magic setter to save private properties.
      *
      * @param string $property
      * @param mixed $value

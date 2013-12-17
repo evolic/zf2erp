@@ -20,6 +20,10 @@ return array(
         'Found %d product category.',
         'Found %d product categories.',
     ),
+    'Found %d product.' => array(
+        'Found %d product.',
+        'Found %d products.',
+    ),
     'Found %d unit.' => array(
         'Found %d unit.',
         'Found %d units.',

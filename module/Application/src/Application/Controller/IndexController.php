@@ -2,7 +2,7 @@
 
 namespace Application\Controller;
 
-use Loculus\MVC\Controller\DefaultController;
+use Loculus\Mvc\Controller\DefaultController;
 
 class IndexController extends DefaultController
 {

@@ -16,7 +16,15 @@ interface ProductCategoriesControllerInterface
     const DEFAULT_LIMIT_PER_PAGE = 20;
 
 
+    /**
+     * Lists product categories
+     */
     public function indexAction();
+
+    /**
+     * Handles adding new product categories
+     */
+    public function addAction();
 
 
     /**

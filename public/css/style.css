@@ -1,6 +1,16 @@
 body {
 }
 
+.cb {
+  clear: both;
+}
+.cl {
+  clear: left;
+}
+.cr {
+  clear: right;
+}
+
 .ct {
   width: 970px;
   margin: 0 auto;
@@ -56,4 +66,12 @@ p.welcome a img {
 
 form label {
   display: block;
+}
+
+footer {
+  margin: 20px 0 5px;
+  padding: 10px;
+  border: 1px solid LightBlue;
+  border-radius: 5px;
+  background-color: AliceBlue;
 }

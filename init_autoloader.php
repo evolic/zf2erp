@@ -14,6 +14,10 @@ if (file_exists('vendor/autoload.php')) {
     $loader = include 'vendor/autoload.php';
 }
 
+if (file_exists('vendor/chromephp/Chromephp.php')) {
+    include_once 'vendor/chromephp/Chromephp.php';
+}
+
 // Support for ZF2_PATH environment variable or git submodule
 if ($zf2Path = getenv('ZF2_PATH') ?: (is_dir('vendor/ZF2/library') ? 'vendor/ZF2/library' : false)) {
     if (isset($loader)) {

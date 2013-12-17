@@ -26,9 +26,14 @@ use Zend\InputFilter\InputFilterInterface;
  * @ORM\Table(name="companies")
  * @property int $id
  * @property string $name
- * @property string $city
- * @property string $postcode
  * @property string $address
+ * @property string $postcode
+ * @property string $city
+ * @property string $vatin
+ * @property string $ein
+ * @property string $bein
+ * @property Country $country
+ * @property ArrayCollection $products
  */
 class Company implements InputFilterAwareInterface
 {
@@ -96,20 +101,17 @@ class Company implements InputFilterAwareInterface
      *  @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
      */
-    protected $country;
+    private $country;
 
-//     /**
-//      * Products using specified unit
-//      *
-//      * @var Doctrine\Common\Collections\ArrayCollection $products
-//      * @ORM\OneToMany(targetEntity="Product", mappedBy="unit", cascade={"persist","remove"})
-//      */
-//     protected $products;
+    /**
+     * @ORM\ManyToMany(targetEntity="EvlErp\Entity\Product", mappedBy="suppliers")
+     */
+    private $products;
 
 
     public function __construct()
     {
-//         $this->products = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
 
@@ -185,7 +187,7 @@ class Company implements InputFilterAwareInterface
       return $this->address;
     }
 
-    public function setCountry($country)
+    public function setCountry(Country $country)
     {
         $this->country = $country;
         return $this;
@@ -263,8 +265,20 @@ class Company implements InputFilterAwareInterface
         return $this;
     }
 
+
     /**
-     * Magic getter to expose protected properties.
+     * Gets the products related to the current company, which is supplier for those products
+     *
+     * @return ArrayCollection
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+
+    /**
+     * Magic getter to expose private properties.
      *
      * @param string $property
      * @return mixed
@@ -275,7 +289,7 @@ class Company implements InputFilterAwareInterface
     }
 
     /**
-     * Magic setter to save protected properties.
+     * Magic setter to save private properties.
      *
      * @param string $property
      * @param mixed $value

@@ -1,0 +1,11 @@
+form#product-form {
+    width: 480px;
+}
+
+form#product-form label span {
+    display: block;
+}
+
+form#product-form > .form-group > fieldset > label > input[type="checkbox"][name="product[suppliers][]"] {
+  margin-right: 10px;
+}

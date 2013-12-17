@@ -16,6 +16,7 @@ $firephp->info($locale);
   <?php
   $idx = 0;
   echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+            ->offsetSetStylesheet(++$idx, $this->basePath() . '/js/vendor/jquery/jquery-ui/1.10.3/css/redmond/jquery-ui.custom.min.css', 'all')
             ->offsetSetStylesheet(++$idx, $this->basePath() . '/js/vendor/bootstrap/3.0.3/css/bootstrap.min.css', 'all')
             ->offsetSetStylesheet(++$idx, $this->basePath() . '/js/vendor/bootstrap/3.0.3/css/bootstrap-theme.min.css', 'all')
             ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-core/alerts.css')
@@ -28,7 +29,7 @@ $firephp->info($locale);
 //   echo $this->headScript()->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
   ?>
 </head>
-<body>
+<body class="<?php echo $this->locale; ?>
   <div class="ct">
     <div id="top-nav" class="col-md-12" role="main">
       <nav class="navbar navbar-default" role="navigation">
@@ -53,7 +54,7 @@ $firephp->info($locale);
                 <li><a href="<?php echo $this->url('erp/product-categories', array('locale' => $this->locale)); ?>">
                     <?php echo $this->translate('Product categories') ?>
                 </a></li>
-                <li><a href="#">
+                <li><a href="<?php echo $this->url('erp/products', array('locale' => $this->locale)); ?>">
                     <?php echo $this->translate('Products list'); ?>
                 </a></li>
                 <li class="divider"></li>
@@ -124,9 +125,10 @@ if ($this->messages || $this->errors) {
 
       <?php echo $this->content; ?>
 
-      <hr>
+      <div class="cb"></div>
 
       <footer>
+        Copyright &copy; 2013 Tomasz Kuter
       </footer>
 
     </div> <!-- /container -->
@@ -138,8 +140,15 @@ $idx = 0;
 echo $this->bodyScript()
     ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/html5.js', 'text/javascript', array('conditional' => 'lt IE 9'))
     ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/1.9.0/jquery.min.js')
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/jquery/jquery-ui/1.10.3/js/jquery-ui.custom.min.js')
     ->offsetSetFile(++$idx, $this->basePath() . '/js/vendor/bootstrap/3.0.3/js/bootstrap.min.js')
     ->offsetSetFile(++$idx, $this->basePath() . '/js/core/change-lang.js')
 ?>
+
+<?php $this->inlineScript()->captureStart(); ?>
+var locale = "<?php echo $this->locale; ?>";
+<?php $this->inlineScript()->captureEnd(); ?>
+<?php echo $this->inlineScript(); ?>
+
 </body>
 </html>

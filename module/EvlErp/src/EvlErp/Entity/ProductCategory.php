@@ -25,6 +25,7 @@ use Zend\InputFilter\InputFilterInterface;
  * @property int $id
  * @property string $name
  * @property string $description
+ * @property ArrayCollection $products
  */
 class ProductCategory implements InputFilterAwareInterface
 {
@@ -43,18 +44,18 @@ class ProductCategory implements InputFilterAwareInterface
     private $name;
 
 
-//     /**
-//      * Products using specified product category
-//      *
-//      * @var Doctrine\Common\Collections\ArrayCollection $products
-//      * @ORM\OneToMany(targetEntity="Product", mappedBy="category", cascade={"persist","remove"})
-//      */
-//     protected $products;
+    /**
+     * Products placed specified product category
+     *
+     * @var Doctrine\Common\Collections\ArrayCollection $products
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category", cascade={"persist","remove"})
+     */
+    private $products;
 
 
     public function __construct()
     {
-//         $this->products = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
 
@@ -68,7 +69,7 @@ class ProductCategory implements InputFilterAwareInterface
 
 
     /**
-     * Magic getter to expose protected properties.
+     * Magic getter to expose private properties.
      *
      * @param string $property
      * @return mixed
@@ -79,7 +80,7 @@ class ProductCategory implements InputFilterAwareInterface
     }
 
     /**
-     * Magic setter to save protected properties.
+     * Magic setter to save private properties.
      *
      * @param string $property
      * @param mixed $value

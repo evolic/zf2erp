@@ -16,7 +16,15 @@ interface UnitsControllerInterface
     const DEFAULT_LIMIT_PER_PAGE = 20;
 
 
+    /**
+   * Lists units
+   */
     public function indexAction();
+
+    /**
+     * Handles adding new units
+     */
+    public function addAction();
 
 
     /**

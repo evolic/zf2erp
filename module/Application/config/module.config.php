@@ -149,6 +149,7 @@ return array(
         ),
         'strategies' => array(
             'Loculus\Mvc\View\Http\BadRequestStrategy',
+            'ViewJsonStrategy',
         ),
     ),
 

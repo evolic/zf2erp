@@ -15,8 +15,15 @@ interface VatRatesControllerInterface
 {
     const DEFAULT_LIMIT_PER_PAGE = 20;
 
-
+  /**
+   * Lists VAT rates
+   */
     public function indexAction();
+
+    /**
+     * Handles adding new VAT rates
+     */
+    public function addAction();
 
 
     /**
