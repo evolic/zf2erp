@@ -65,9 +65,6 @@ class UnitsController extends DefaultController
 
     public function addAction()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $locale = $this->params()->fromRoute('locale');
 
         if (!$locale) {
@@ -82,7 +79,6 @@ class UnitsController extends DefaultController
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $firephp->info('is post');
             $unit = new Unit();
             $form->setInputFilter($unit->getInputFilter());
             $form->attachObjectExistsValidator($this->getUnitsService()->getUnitsRepository());
@@ -100,17 +96,12 @@ class UnitsController extends DefaultController
 
                 // Redirect to list of units
                 return $this->redirect()->toRoute('erp/units', array('locale' => $locale));
-            } else {
-                $firephp->warn('not valid');
-                $firephp->error($form->getMessages(), 'error messages');
             }
         }
 
         $this->viewModel->setVariables(array(
             'form' => $form,
         ));
-
-        $firephp->groupEnd();
 
         return $this->viewModel;
     }

@@ -56,9 +56,6 @@ class ProductsService implements ProductsServiceInterface
      */
     private function _saveProduct(Product $product, $mode = self::MODE_INSERT)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $this->getEntityManager()->beginTransaction();
         try {
             if ($mode === self::MODE_INSERT) {
@@ -69,18 +66,10 @@ class ProductsService implements ProductsServiceInterface
             $this->getEntityManager()->flush();
             $this->getEntityManager()->commit();
 
-            $firephp->info('ok');
-
-            $firephp->groupEnd();
-
             return true;
         } catch (\Exception $e) {
             $this->getEntityManager()->rollback();
             $this->getEntityManager()->close();
-
-            $firephp->error($e->getMessage());
-            $firephp->error($e->getTraceAsString());
-            $firephp->groupEnd();
 
             return false;
         }

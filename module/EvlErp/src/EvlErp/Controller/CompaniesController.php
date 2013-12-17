@@ -65,9 +65,6 @@ class CompaniesController extends DefaultController
 
     public function addAction()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $locale = $this->params()->fromRoute('locale');
 
         if (!$locale) {
@@ -96,17 +93,12 @@ class CompaniesController extends DefaultController
 
                 // Redirect to list of companies
                 return $this->redirect()->toRoute('erp/companies', array('locale' => $locale));
-            } else {
-                $firephp->warn('not valid');
-                $firephp->error($form->getMessages(), 'error messages');
             }
         }
 
         $this->viewModel->setVariables(array(
             'form' => $form,
         ));
-
-        $firephp->groupEnd();
 
         return $this->viewModel;
     }

@@ -44,9 +44,6 @@ class CountriesService implements CountriesServiceInterface
      */
     public function addCountry(Country $country, $locale)
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->info(__METHOD__);
-
         $this->getEntityManager()->beginTransaction();
         try {
             $this->getEntityManager()->persist($country);
@@ -54,15 +51,10 @@ class CountriesService implements CountriesServiceInterface
             $this->getEntityManager()->flush();
             $this->getEntityManager()->commit();
 
-            $firephp->info('ok');
-
             return true;
         } catch (\Exception $e) {
             $this->getEntityManager()->rollback();
             $this->getEntityManager()->close();
-
-            $firephp->error($e->getMessage(), 'exception');
-            $firephp->error($e->getTraceAsString(), 'trace');
 
             return false;
         }

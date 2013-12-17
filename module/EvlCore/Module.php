@@ -43,7 +43,6 @@ class Module
     public function onBootstrap(MvcEvent $e)
     {
         $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
 
         $eventManager   = $e->getApplication()->getEventManager();
         $serviceManager = $e->getApplication()->getServiceManager();
@@ -53,22 +52,20 @@ class Module
         $sharedManager->attach('Zend\Mvc\Application', array(MvcEvent::EVENT_DISPATCH_ERROR, MvcEvent::EVENT_RENDER_ERROR), function (MvcEvent $e) use ($serviceManager) {
             if ($e->getParam('exception')) {
                 $serviceManager->get('LoggerService')->get(LoggerService::EXCEPTION)->crit($e->getParam('exception'));
-                if (!Console::isConsole()) {
-                    if (class_exists('\ChromePhp')) {
-                        \ChromePhp::error(get_class($e->getParam('exception')));
-                        \ChromePhp::error($e->getParam('exception'));
-                        \ChromePhp::error($e->getParam('exception')->getTraceAsString());
-                    }
-                    if (class_exists('\FirePHP')) {
-                        $firephp = \FirePHP::getInstance(true);
-                        $firephp->error(get_class($e->getParam('exception')));
-                        $firephp->error($e->getParam('exception')->getMessage());
-                        $firephp->error($e->getParam('exception')->getTraceAsString());
-                    }
-                }
+//                 if (!Console::isConsole()) {
+//                     if (class_exists('\ChromePhp')) {
+//                         \ChromePhp::error(get_class($e->getParam('exception')));
+//                         \ChromePhp::error($e->getParam('exception'));
+//                         \ChromePhp::error($e->getParam('exception')->getTraceAsString());
+//                     }
+//                     if (class_exists('\FirePHP')) {
+//                         $firephp = \FirePHP::getInstance(true);
+//                         $firephp->error(get_class($e->getParam('exception')));
+//                         $firephp->error($e->getParam('exception')->getMessage());
+//                         $firephp->error($e->getParam('exception')->getTraceAsString());
+//                     }
+//                 }
             }
         }, 100);
-
-        $firephp->groupEnd();
     }
 }

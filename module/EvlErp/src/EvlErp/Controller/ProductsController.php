@@ -207,9 +207,6 @@ class ProductsController extends DefaultController
      */
     public function addAction()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $locale = $this->params()->fromRoute('locale');
 
         if (!$locale) {
@@ -239,17 +236,12 @@ class ProductsController extends DefaultController
 
                 // Redirect to list of products
                 return $this->redirect()->toRoute('erp/products', array('locale' => $locale));
-            } else {
-                $firephp->warn('not valid');
-                $firephp->error($form->getMessages(), 'error messages');
             }
         }
 
         $this->viewModel->setVariables(array(
             'form' => $form,
         ));
-
-        $firephp->groupEnd();
 
         return $this->viewModel;
     }
@@ -261,9 +253,6 @@ class ProductsController extends DefaultController
      */
     public function editAction()
     {
-        $firephp = \FirePHP::getInstance();
-        $firephp->group(__METHOD__);
-
         $locale = $this->params()->fromRoute('locale');
         $id = (int) $this->params()->fromRoute('id', 0);
 
@@ -303,9 +292,6 @@ class ProductsController extends DefaultController
 
                 // Redirect to list of products
                 return $this->redirect()->toRoute('erp/products', array('locale' => $locale));
-            } else {
-                $values = $form->getData();
-                $firephp->error($form->getMessages(), 'error messages');
             }
         }
 
@@ -313,8 +299,6 @@ class ProductsController extends DefaultController
             'form' => $form,
             'product' => $product,
         ));
-
-        $firephp->groupEnd();
 
         return $this->viewModel;
     }
