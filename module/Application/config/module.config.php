@@ -55,7 +55,7 @@ return array(
                         'locale' => '[a-z]{2}(-[A-Z]{2}){0,1}'
                     ),
                     'defaults' => array(
-                        'controller' => 'evl-erp/vat-rates',
+                        'controller' => 'evl-erp/products',
                         'action'     => 'index'
                     ),
                 ),
