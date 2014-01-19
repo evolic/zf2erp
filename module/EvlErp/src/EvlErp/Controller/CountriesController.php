@@ -82,8 +82,11 @@ class CountriesController extends DefaultController
         if ($request->isPost()) {
             $country = new Country();
             $form->setInputFilter($country->getInputFilter());
+
             // Validator checking if specified country name is already taken
-            $countryNotExistsValidator = $this->getServiceLocator()->get('ValidatorManager')->get('CountryNotExistsValidator');
+            $countryNotExistsValidator = $this->getServiceLocator()
+                ->get('ValidatorManager')->get('CountryNotExistsValidator');
+
             /* @var CountryNotExistsValidator $countryNotExistsValidator */
             $countryNotExistsValidator->setLocale($locale);
 

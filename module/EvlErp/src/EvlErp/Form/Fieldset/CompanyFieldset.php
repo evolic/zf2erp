@@ -278,7 +278,9 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
                         'name'    => 'NotEmpty',
                         'options' => array(
                             'messages' => array(
-                                NotEmptyValidator::IS_EMPTY => $translator->translate('Please choose one of available countires', 'evl-erp'),
+                                NotEmptyValidator::IS_EMPTY => $translator->translate(
+                                    'Please choose one of available countires', 'evl-erp'
+                                ),
                             ),
                         ),
                     ),
@@ -298,8 +300,12 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
                             'min'      => 10,
                             'max'      => 13,
                             'messages' => array(
-                                StringLengthValidator::TOO_SHORT => $translator->translate('Please enter valid VAT Identification Number', 'evl-erp'),
-                                StringLengthValidator::TOO_LONG => $translator->translate('Please enter valid VAT Identification Number', 'evl-erp'),
+                                StringLengthValidator::TOO_SHORT => $translator->translate(
+                                    'Please enter valid VAT Identification Number', 'evl-erp'
+                                ),
+                                StringLengthValidator::TOO_LONG => $translator->translate(
+                                    'Please enter valid VAT Identification Number', 'evl-erp'
+                                ),
                             ),
                         ),
                     ),
@@ -319,8 +325,12 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
                             'min'      => 9,
                             'max'      => 9,
                             'messages' => array(
-                                StringLengthValidator::TOO_SHORT => $translator->translate('Please enter valid Enterprise Identification Number', 'evl-erp'),
-                                StringLengthValidator::TOO_LONG => $translator->translate('Please enter valid Enterprise Identification Number', 'evl-erp'),
+                                StringLengthValidator::TOO_SHORT => $translator->translate(
+                                    'Please enter valid Enterprise Identification Number', 'evl-erp'
+                                ),
+                                StringLengthValidator::TOO_LONG => $translator->translate(
+                                    'Please enter valid Enterprise Identification Number', 'evl-erp'
+                                ),
                             ),
                         ),
                     ),
@@ -340,8 +350,12 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
                             'min'      => 6,
                             'max'      => 10,
                             'messages' => array(
-                                StringLengthValidator::TOO_SHORT => $translator->translate('Please enter valid Business Entity Identification Number', 'evl-erp'),
-                                StringLengthValidator::TOO_LONG => $translator->translate('Please enter valid Business Entity Identification Number', 'evl-erp'),
+                                StringLengthValidator::TOO_SHORT => $translator->translate(
+                                    'Please enter valid Business Entity Identification Number', 'evl-erp'
+                                ),
+                                StringLengthValidator::TOO_LONG => $translator->translate(
+                                    'Please enter valid Business Entity Identification Number', 'evl-erp'
+                                ),
                             ),
                         ),
                     ),
@@ -366,7 +380,9 @@ class CompanyFieldset extends Fieldset implements InputFilterProviderInterface, 
             'object_repository' => $repository,
             'fields' => array('name'),
             'messages' => array(
-                NoObjectExistsValidator::ERROR_OBJECT_FOUND => $translator->translate('Specified company is already present in the database', 'EvlErp'),
+                NoObjectExistsValidator::ERROR_OBJECT_FOUND => $translator->translate(
+                    'Specified company is already present in the database', 'EvlErp'
+                ),
             )
         ));
 

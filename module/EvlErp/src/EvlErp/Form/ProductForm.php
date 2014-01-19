@@ -158,8 +158,9 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
     {
         // create new validator chain
         $newValidatorChain = new ValidatorChain;
+        $validators = $this->getInputFilter()->get('product')->get('name')->getValidatorChain()->getValidators();
 
-        foreach ($this->getInputFilter()->get('product')->get('name')->getValidatorChain()->getValidators() as $validator) {
+        foreach ($validators as $validator) {
             $instance = $validator['instance'];
             if (!($instance instanceof NoObjectExistsValidator)) {
                 $newValidatorChain->addValidator($instance, $validator['breakChainOnFailure']);

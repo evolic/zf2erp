@@ -27,7 +27,8 @@ use Zend\Validator\StringLength as StringLengthValidator;
  * Class ProductFieldset - product fieldset
  * @package EvlErp\Form\Fieldset
  */
-class ProductFieldset extends Fieldset implements InputFilterProviderInterface, ServiceLocatorAwareInterface
+class ProductFieldset extends Fieldset
+  implements InputFilterProviderInterface, ServiceLocatorAwareInterface
 {
     /**
      * @var ServiceLocatorInterface
@@ -315,7 +316,9 @@ class ProductFieldset extends Fieldset implements InputFilterProviderInterface, 
             'object_repository' => $repository,
             'fields' => array('name'),
             'messages' => array(
-                NoObjectExistsValidator::ERROR_OBJECT_FOUND => $translator->translate('There is already product with specified name in the database', 'EvlErp'),
+                NoObjectExistsValidator::ERROR_OBJECT_FOUND => $translator->translate(
+                    'There is already product with specified name in the database', 'evl-erp'
+                ),
             )
         ));
 

@@ -86,9 +86,13 @@ class CompaniesController extends DefaultController
                 $translator = $this->getServiceLocator()->get('translator');
 
                 if ($this->getCompaniesService()->addCompany($company)) {
-                    $this->FlashMessenger()->addSuccessMessage($translator->translate('New company has been successfully added', 'evl-erp'));
+                    $this->FlashMessenger()->addSuccessMessage(
+                        $translator->translate('New company has been successfully added', 'evl-erp')
+                    );
                 } else {
-                    $this->FlashMessenger()->addErrorMessage($translator->translate('Error occurred while adding new unit', 'evl-erp'));
+                    $this->FlashMessenger()->addErrorMessage(
+                        $translator->translate('Error occurred while adding new unit', 'evl-erp')
+                    );
                 }
 
                 // Redirect to list of companies
