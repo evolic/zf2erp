@@ -33,6 +33,13 @@ interface ProductsControllerInterface
     public function ajaxListingAction();
 
     /**
+     * Gets product price (brutto/netto) via ajax call
+     *
+     * @return JsonViewModel
+     */
+    public function ajaxCalculatePriceAction();
+
+    /**
      * Handles adding new products
      *
      * @return ViewModel

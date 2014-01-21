@@ -97,6 +97,27 @@ class ProductsService implements ProductsServiceInterface
         return $this->_saveProduct($product, self::MODE_UPDATE);
     }
 
+    /**
+     * Method used to calculate product price (brutto/netto) based on VAT rate and price (netto/brutto)
+     *
+     * @param Product $product
+     * @return float|false
+     */
+    public function calculatePrice(Product $product)
+    {
+        if (is_numeric($product->getPriceNetto()) && $product->getPriceNetto() > 0) {
+            $product->calculateBruttoPrice();
+
+            return $product->getPriceBrutto();
+        } else if (is_numeric($product->getPriceBrutto()) && $product->getPriceBrutto() > 0) {
+            $product->calculateNettoPrice();
+
+            return $product->getPriceNetto();
+        }
+
+        return false;
+    }
+
 
     /**
      * Method used to obtain EntityManager.

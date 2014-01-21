@@ -186,8 +186,26 @@ class Product
      * */
     public function calculateBruttoPriceOnPrePersist()
     {
+        $this->calculateBruttoPrice();
+    }
+
+    /**
+     * Calculates brutto price based on netto price and specified VAT rate
+     * */
+    public function calculateBruttoPrice()
+    {
         $vatRate = $this->getVatRate()->getValue();
         $this->price_brutto = round($this->price_netto * (100 + $vatRate) / 100, 2);
+    }
+
+    /**
+     * Calculates netto price based on brutto price and specified VAT rate
+     *
+     * */
+    public function calculateNettoPrice()
+    {
+        $vatRate = $this->getVatRate()->getValue();
+        $this->price_netto = round($this->price_brutto / (100 + $vatRate) * 100, 2);
     }
 
     /**
@@ -262,15 +280,15 @@ class Product
         return $this->price_netto;
     }
 
-//     /**
-//      * @param float $price Product brutto price
-//      * @return Product
-//      */
-//     public function setPriceBrutto($price)
-//     {
-//         $this->price_brutto  = $price;
-//         return $this;
-//     }
+    /**
+     * @param float $price Product brutto price
+     * @return Product
+     */
+    public function setPriceBrutto($price)
+    {
+        $this->price_brutto  = $price;
+        return $this;
+    }
 
     /**
      * @return float
@@ -411,6 +429,17 @@ class Product
     {
         $this->$property = $value;
         return $this;
+    }
+
+
+    /**
+     * Convert the object to an array.
+     *
+     * @return array
+     */
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
     }
 
 

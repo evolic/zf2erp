@@ -18,8 +18,10 @@ use EvlErp\Form\ProductForm;
 use DoctrineModule\Validator\NoObjectExists as NoObjectExistsValidator;
 use Zend\Form\Fieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
+use Zend\I18n\Filter\NumberFormat;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Validator\Between as BetweenValidator;
 use Zend\Validator\NotEmpty as NotEmptyValidator;
 use Zend\Validator\StringLength as StringLengthValidator;
 
@@ -49,9 +51,6 @@ class ProductFieldset extends Fieldset
     public function init()
     {
         parent::__construct('product');
-
-        // You will get the application wide service manager
-        $sm = $this->getFormFactory()->getFormElementManager()->getServiceLocator();
 
         $entityManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 
@@ -295,6 +294,76 @@ class ProductFieldset extends Fieldset
                         ),
                     ),
                     $this->getUniqueNameValidator(),
+                ),
+            ),
+            'price_netto' => array(
+                'required' => true,
+                'filters' => array(
+                    new NumberFormat("en_US")
+                ),
+                'validators' => array(
+                    array(
+                        'name' => 'Float',
+                        'options' => array(
+                            'locale' => 'en_US',
+                        ),
+                    ),
+                    array (
+                        'name' => 'Between',
+                        'options' => array (
+                            'min' => 0,
+                            'max' => 10000,
+                            'inclusive' => false,
+                            'messages' => array(
+                                BetweenValidator::NOT_BETWEEN_STRICT => $translator->translate(
+                                    'Price must be between %min% and %max%', 'evl-core'
+                                ),
+                            )
+                        )
+                    ),
+                ),
+            ),
+            'price_brutto' => array(
+                'required' => true,
+                'filters' => array(
+                    new NumberFormat("en_US")
+                ),
+                'validators' => array(
+                    array(
+                        'name' => 'Float',
+                        'options' => array(
+                            'locale' => 'en_US',
+                        ),
+                    ),
+                    array (
+                        'name' => 'Between',
+                        'options' => array (
+                            'min' => 0,
+                            'max' => 10000,
+                            'inclusive' => false,
+                            'messages' => array(
+                                BetweenValidator::NOT_BETWEEN_STRICT => $translator->translate(
+                                    'Price must be between %min% and %max%', 'evl-core'
+                                ),
+                            )
+                        )
+                    ),
+                ),
+            ),
+            'description' => array(
+                'required' => true,
+                'filters' => array(
+                    array('name' => 'StringTrim'),
+                    array('name' => 'StripTags'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 4,
+                        ),
+                    ),
                 ),
             ),
         );

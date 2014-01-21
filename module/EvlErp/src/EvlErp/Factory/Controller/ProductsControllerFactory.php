@@ -27,10 +27,13 @@ class ProductsControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $productForm = $serviceLocator->getServiceLocator()->get('FormElementManager')->get('EvlErp\Form\ProductForm');
+      $formElementManager = $serviceLocator->getServiceLocator()->get('FormElementManager');
+        $productForm = $formElementManager->get('EvlErp\Form\ProductForm');
+        $productPriceForm = $formElementManager->get('EvlErp\Form\ProductPriceForm');
 
         $ctr = new ProductsController();
         $ctr->setProductForm($productForm);
+        $ctr->setProductPriceForm($productPriceForm);
         $ctr->setProductsService($serviceLocator->getServiceLocator()->get('ProductsService'));
 
         return $ctr;

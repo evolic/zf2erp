@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Query;
 use EvlErp\Entity\Product;
 use EvlErp\Form\ProductForm;
+use EvlErp\Form\ProductPriceForm;
 use EvlErp\Service\ProductsService;
 use Loculus\Mvc\Controller\DefaultController;
 use Zend\InputFilter\InputFilter;
@@ -32,6 +33,12 @@ class ProductsController extends DefaultController
      * @var ProductForm
      */
     private $productForm;
+
+    /**
+     *
+     * @var ProductPriceForm
+     */
+    private $productPriceForm;
 
     /**
      *
@@ -147,6 +154,61 @@ class ProductsController extends DefaultController
             'iTotalRecords' => $paginator->getTotalItemCount(),
             'iTotalDisplayRecords' => $paginator->getTotalItemCount(),
             'aaData' => $this->_createProductsArray($paginator->getItemsByPage($page), $locale),
+        ));
+    }
+
+    /**
+     * Gets product price (brutto/netto) via ajax call
+     *
+     * @return JsonViewModel
+     */
+    public function ajaxCalculatePriceAction()
+    {
+        // translator
+        $translator = $this->getServiceLocator()->get('translator');
+
+        $result = array(
+            'success' => false,
+            'message' => $translator->translate('Wrong usage of the method', 'evl-core'),
+        );
+
+        $locale  = $this->params()->fromRoute('locale');
+
+        if (!$locale) {
+            $this->getEvent()->getResponse()->setStatusCode(400);
+            return new JsonViewModel($result);
+        }
+
+        $form    = $this->getProductPriceForm();
+        $request = $this->getRequest();
+        $price   = false;
+
+        if ($request->isPost()) {
+            $form->setData($request->getPost());
+
+            if ($form->isValid()) {
+                $product = $form->getData();
+                /* @var $product Product */
+
+                $price = $this->getProductsService()->calculatePrice($product);
+            } else {
+                $messages = $form->getMessages();
+
+                $this->getEvent()->getResponse()->setStatusCode(400);
+                // Cannot calculate price for specified values
+                $result['message'] = $translator->translate(
+                    'Invalid params of the request', 'evl-core'
+                );
+                $result['messages'] = $messages;
+
+                return new JsonViewModel($result);
+            }
+        }
+
+        return new JsonViewModel(array(
+            'success' => true,
+            'price' => $price,
+            'message' => $translator->translate('OK (calculated)', 'evl-core'),
         ));
     }
 
@@ -307,7 +369,7 @@ class ProductsController extends DefaultController
     /**
      * Method used to inject form handling adding new product.
      *
-     * @param ProductForm $orderLunchForm
+     * @param ProductForm $form
      */
     public function setProductForm(ProductForm $form)
     {
@@ -322,6 +384,26 @@ class ProductsController extends DefaultController
     public function getProductForm()
     {
         return $this->productForm;
+    }
+
+    /**
+     * Method used to inject form handling adding new product.
+     *
+     * @param ProductPriceForm $form
+     */
+    public function setProductPriceForm(ProductPriceForm $form)
+    {
+        $this->productPriceForm = $form;
+    }
+
+    /**
+     * Method used to obtain form handling adding new product.
+     *
+     * @return ProductPriceForm
+     */
+    public function getProductPriceForm()
+    {
+        return $this->productPriceForm;
     }
 
     /**

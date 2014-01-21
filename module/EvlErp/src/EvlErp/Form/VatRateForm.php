@@ -41,7 +41,7 @@ class VatRateForm extends Form implements InputFilterProviderInterface
                 'type'  => 'submit',
                 'value' => 'Submit',
                 'id' => 'submit',
-                'class' => 'btn btn-default',
+                'class' => 'btn btn-primary'
             ),
         ));
     }

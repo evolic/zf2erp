@@ -37,6 +37,12 @@ interface ProductsServiceInterface
      */
     public function updateProduct(Product $product);
 
+    /**
+     * Method used to calculate product price (brutto/netto) based on VAT rate and price (netto/brutto)
+     *
+     * @param Product $product
+     */
+    public function calculatePrice(Product $product);
 
     /**
      * Method used to obtain EntityManager.

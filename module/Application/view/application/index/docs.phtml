@@ -58,9 +58,9 @@ $this->bodyScript()
 <ul>
   <li>Check if product name is not taken by another product while updating data</li>
   <li>Sort available suppliers by their name in add/edit product form</li>
-  <li>Add recalculating product brutto price in JavaScript</li>
+  <li><span class="strike">Add recalculating product brutto price in JavaScript</span> [2014-01-20]</li>
   <li>Implement handling clicking on cancel button in the forms</li>
-  <li>Cut too long strings, becasue they cause exception while saving that data in database</li>
+  <li>Cut too long strings, becasue they cause exception while saving that data in database (input filter)</li>
   <li>Move interfaces files to separate folders</li>
   <li>Do not create Form object in the controllers, but use appropriate methods
   <li>Add translation of the messages after (un)successful adding new object
@@ -95,4 +95,5 @@ $this->bodyScript()
   <li>Integrate Timestable behaviour (from Gedmo extensions to Doctrine 2 ORM) with all database entities</li>
   <li>Add Zend\Cache to speed up application</li>
   <li>Add additional indexes in the database e.g. for product name</li>
+  <li>Remove adding multiple forms to the controllers. Use setting form properties inside getForm() method.</li>
 </ul>

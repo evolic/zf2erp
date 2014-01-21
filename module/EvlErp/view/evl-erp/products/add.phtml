@@ -5,8 +5,15 @@ namespace EvlErp;
 
 // Le styles
 $idx = 100;
-$this->headLink()->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-core/form.css', 'all')
+$this->headLink()
+    ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-core/form.css', 'all')
     ->offsetSetStylesheet(++$idx, $this->basePath() . '/css/module/evl-erp/products/add.css', 'all')
+    ;
+
+// Scripts
+$idx = 100;
+$this->bodyScript()
+    ->offsetSetFile(++$idx, $this->basePath() . '/js/module/evl-erp/products/add.js')
     ;
 
 $title = $this->translate('Add new product', 'evl-erp');
@@ -42,3 +49,13 @@ echo $this->formSubmit($form->get('cancel'));
 echo '</div>';
 
 echo $this->form()->closeTag();
+
+$this->inlineScript()->captureStart();
+?>
+var OK = "<?php echo $this->translate('OK', 'evl-core'); ?>";
+var valueIsRequired = "<?php echo $this->translate('Value is required and can\'t be empty', 'evl-core'); ?>";
+var fieldValueIsInvalid = "<?php echo $this->translate('Field value is invalid', 'evl-erp'); ?>";
+var calculatePriceUrl = "<?php echo $this->url('erp/products/ajax-calculate-price', array('locale' => $this->locale)); ?>";
+<?php
+$this->inlineScript()->captureEnd();
+echo $this->inlineScript();

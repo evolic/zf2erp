@@ -166,6 +166,7 @@ class ProductForm extends Form implements ServiceLocatorAwareInterface
                 $newValidatorChain->addValidator($instance, $validator['breakChainOnFailure']);
             }
         }
+        // @TODO Add validator that checks if product name is not taken by another product
         // replace the old validator chain on the element
         $this->getInputFilter()->get('product')->get('name')->setValidatorChain($newValidatorChain);
     }

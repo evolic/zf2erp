@@ -156,6 +156,15 @@ return array(
                                     ),
                                 ),
                             ),
+                            'ajax-calculate-price' => array(
+                                'type' => 'literal',
+                                'options' => array(
+                                    'route' => '/ajax-calculate-price.json',
+                                    'defaults' => array(
+                                        'action' => 'ajax-calculate-price',
+                                    ),
+                                ),
+                            ),
                         ),
                         'may_terminate' => true,
                     ),

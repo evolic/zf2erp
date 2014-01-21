@@ -5,3 +5,7 @@ form#vat-rate-form {
 form#vat-rate-form label.value {
     width: 170px;
 }
+
+form#vat-rate-form .input-group.bootstrap-touchspin .form-control {
+    padding: 0 0 0 10px;
+}

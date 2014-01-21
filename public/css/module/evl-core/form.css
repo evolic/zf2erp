@@ -16,12 +16,12 @@
     background-image: linear-gradient(to bottom, #F2DEDE 0px, #F2AEAE 100%);
     color: #A94442;
 }
-.has-error ul {
+.has-error ul, .has-success ul {
     list-style: none;
     margin: 10px 0 15px;
     padding: 0;
 }
-.has-error ul li {
+.has-error ul li, .has-success ul li {
     display: block;
     padding: 10px 10px 10px 32px;
     margin-bottom: 15px;
@@ -32,4 +32,15 @@
     background-position: 4px center;
     border: 1px solid #ebccd1;
     border-radius: 4px;
+}
+
+.has-success {
+  color: #3c763d;
+}
+
+.has-success ul li {
+    color: #3c763d;
+    background-color: #dff0d8;
+    background-image: url('/i/ico/status-icons-set/24/30.png');
+    border-color: #3c763d;
 }

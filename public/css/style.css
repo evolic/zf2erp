@@ -64,6 +64,10 @@ p.welcome a img {
   margin: 16px;
 }
 
+span.strike {
+  text-decoration: line-through;
+}
+
 form label {
   display: block;
 }
