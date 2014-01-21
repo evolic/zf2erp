@@ -137,13 +137,14 @@ class VatRate implements InputFilterAwareInterface
                 'name'     => 'value',
                 'required' => true,
                 'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
                     new NumberFormat("en_US", NumberFormatter::TYPE_DOUBLE)
                 ),
                 'validators' => array(
                     array(
                         'name' => 'Float',
+                        'options' => array(
+                            'locale' => 'en_US',
+                        ),
                     ),
                     array (
                         'name' => 'Between',
