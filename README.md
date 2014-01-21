@@ -9,7 +9,7 @@ It is sample ZF2 project, which was created according to specification of the ap
 from the Techcamp October 2013's contest.
 
 Specification (in Polish) is available at:
-[http://zf2erp.tomaszkuter.com/docs/Zadanie-programistyczne2.docx]
+http://zf2erp.tomaszkuter.com/docs/Zadanie-programistyczne2.docx
 
 
 Technology
@@ -28,7 +28,7 @@ In the project there were used:
 
 Documentation page:
 --------------------------------
-[http://zf2erp.tomaszkuter.com/en-US/docs]
+http://zf2erp.tomaszkuter.com/en-US/docs
 
 
 TODO list
@@ -59,4 +59,4 @@ TODO list
 * Add additional indexes in the database e.g. for product name
 * Remove adding multiple forms to the controllers. Use setting form properties inside getForm() method.
 
-See the application live [http://zf2erp.tomaszkuter.com/)
+See the application live at http://zf2erp.tomaszkuter.com/
