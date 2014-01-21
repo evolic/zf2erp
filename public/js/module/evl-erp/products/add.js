@@ -7,10 +7,7 @@ var valid = {
 $(document).ready(function() {
   $( "select#vat_rate" ).change(function() {
     var field = $(this);
-    console.log( "Handler for .change() called." );
-    // Check input( $(this).val() ) for validity here
     var vat_rate = field.val();
-    console.log( vat_rate, 'select' );
 
     if ( !vat_rate ) {
       addErrorMessage(field, valueIsRequired);
@@ -35,9 +32,6 @@ $(document).ready(function() {
     var field = $(this);
     var price = field.val();
 
-    console.log( "Handler for .blur() called." );
-    console.log( price, 'netto' );
-
     if ( !price ) {
       addErrorMessage(field, valueIsRequired);
       valid['price_netto'] = false;
@@ -49,19 +43,16 @@ $(document).ready(function() {
       valid['price_netto'] = true;
     }
 
-//    if (valid['vat_rate'] && valid['price_netto']) {
+    if (valid['vat_rate'] && valid['price_netto']) {
       var input = $('input#price_brutto');
       var vat_rate = $('select#vat_rate').val();
       updatePriceBrutto(vat_rate, price, input);
-//    }
+    }
   });
 
   $( "input#price_brutto" ).blur(function() {
     var field = $(this);
     var price = field.val();
-
-    console.log( "Handler for .blur() called." );
-    console.log( field.val(), 'brutto' );
 
     if ( !price ) {
       addErrorMessage(field, valueIsRequired);
@@ -107,8 +98,6 @@ function getPrice(data, field) {
     type: 'POST'
   })
   .done(function(response, textStatus, jqXHR) {
-    console.log( "success" );
-    console.log(textStatus);
     if (response.success) {
       field.val(response.price);
       addSuccessMessage(field, response.message);
@@ -117,15 +106,18 @@ function getPrice(data, field) {
     }
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
-    console.log('error');
-    console.log(errorThrown);
-    console.log(textStatus);
-    console.log(jqXHR);
     switch (jqXHR.status) {
       case 400:
         var response = jQuery.parseJSON(jqXHR.responseText);
         if (!response.success) {
           console.log(response.messages);
+          for (var fieldset in response.messages) {
+            for (var field_name in response.messages[fieldset]) {
+              var field = $('#'+field_name);
+              var messages = response.messages[fieldset][field_name];
+              addErrorMessages(field, messages);
+            }
+          }
         }
         break;
       default:
@@ -147,9 +139,24 @@ function addMessage(field, message, type) {
   clearMessage(parent);
   parent.addClass(type);
 
-  parent.find('ul').remove();
   parent.append('<ul>');
   parent.find('ul').append('<li>'+message+'</li>');
+}
+
+function addErrorMessages(field, messages) {
+  addMessages(field, messages, 'has-error');
+}
+
+function addMessages(field, messages, type) {
+  var parent = field.parent();
+
+  clearMessage(parent);
+  parent.addClass(type);
+
+  parent.append('<ul>');
+  for (var i in messages) {
+    parent.find('ul').append('<li>'+messages[i]+'</li>');
+  }
 }
 
 function clearMessage(parent) {
@@ -159,4 +166,6 @@ function clearMessage(parent) {
   if (parent.hasClass('has-error')) {
     parent.removeClass('has-error');
   }
+
+  parent.find('ul').remove();
 }
