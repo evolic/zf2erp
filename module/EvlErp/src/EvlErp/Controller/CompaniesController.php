@@ -111,7 +111,7 @@ class CompaniesController extends DefaultController
     /**
      * Method used to inject form handling adding new company.
      *
-     * @param CompanyForm $orderLunchForm
+     * @param CompanyForm $form
      */
     public function setCompanyForm(CompanyForm $form)
     {

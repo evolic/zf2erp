@@ -110,7 +110,7 @@ class UnitsController extends DefaultController
     /**
      * Method used to inject form handling adding new unit.
      *
-     * @param UnitForm $orderLunchForm
+     * @param UnitForm $form
      */
     public function setUnitForm(UnitForm $form)
     {

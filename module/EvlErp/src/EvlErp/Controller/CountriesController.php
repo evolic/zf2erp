@@ -119,7 +119,7 @@ class CountriesController extends DefaultController
     /**
      * Method used to inject form handling adding new country.
      *
-     * @param CountryForm $orderLunchForm
+     * @param CountryForm $form
      */
     public function setCountryForm(CountryForm $form)
     {

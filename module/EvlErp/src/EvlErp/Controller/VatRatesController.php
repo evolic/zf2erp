@@ -110,7 +110,7 @@ class VatRatesController extends DefaultController
     /**
      * Method used to inject form handling adding VAT rate.
      *
-     * @param VatRateForm $orderLunchForm
+     * @param VatRateForm $form
      */
     public function setVatRateForm(VatRateForm $form)
     {

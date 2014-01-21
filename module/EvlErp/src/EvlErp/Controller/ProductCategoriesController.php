@@ -110,7 +110,7 @@ class ProductCategoriesController extends DefaultController
     /**
      * Method used to inject form handling adding new product category.
      *
-     * @param ProductCategoryForm $orderLunchForm
+     * @param ProductCategoryForm $form
      */
     public function setProductCategoryForm(ProductCategoryForm $form)
     {
